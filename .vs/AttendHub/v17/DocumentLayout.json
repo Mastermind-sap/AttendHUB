@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\customInput.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\People.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\AttendHub.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\AttendHub.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\People.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\People.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,40 +36,40 @@
               "RelativeDocumentMoniker": "AttendHub\\customInput.h",
               "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\customInput.h",
               "RelativeToolTip": "AttendHub\\customInput.h",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAADMAAABJAAAA",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAswFwAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-11T13:03:00.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AttendHub.cpp",
               "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\AttendHub.cpp",
               "RelativeDocumentMoniker": "AttendHub\\AttendHub.cpp",
               "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\AttendHub.cpp",
               "RelativeToolTip": "AttendHub\\AttendHub.cpp",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAGAAAAApAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAiwFoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-11T13:00:23.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "People.cpp",
               "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.cpp",
               "RelativeDocumentMoniker": "AttendHub\\People.cpp",
               "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.cpp",
               "RelativeToolTip": "AttendHub\\People.cpp",
-              "ViewState": "AQIAACcAAAAAAAAAAAAUwEQAAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAUwBkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-11T12:59:44.079Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "People.h",
               "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.h",
               "RelativeDocumentMoniker": "AttendHub\\People.h",

@@ -1,99 +1,28 @@
 ﻿  AttendHub.cpp
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): warning C4003: not enough arguments for function-like macro invocation 'max'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,33): error C2065: 'numeric_limits': undeclared identifier
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,48): error C2065: 'streamsize': undeclared identifier
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C2589: '(': illegal token on right side of '::'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C3878: syntax error: unexpected token '(' following 'expression'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): message : error recovery skipped: '( ('
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C2760: syntax error: ')' was unexpected here; expected ';'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C3878: syntax error: unexpected token ')' following 'expression_statement'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C3878: syntax error: unexpected token ')' following 'statement'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C3878: syntax error: unexpected token ')' following 'statement_seq'
-  (compiling source file 'AttendHub.cpp')
-  C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61):
-  missing one of:  '}' ?
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C2760: syntax error: ')' was unexpected here; expected '}'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C3878: syntax error: unexpected token ')' following 'compound_statement'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C3878: syntax error: unexpected token ')' following 'selection_statement'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): message : error recovery skipped: ') >'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): error C2760: syntax error: ')' was unexpected here; expected 'expression'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): message : error recovery skipped: ') ) ?'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): message : error recovery skipped: ') :'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,61): message : error recovery skipped: ') ) ,'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,72): error C2760: syntax error: ')' was unexpected here; expected ';'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,72): error C3878: syntax error: unexpected token ')' following 'expression_statement'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,72): message : error recovery skipped: ')'
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(53,49): error C2065: 'endl': undeclared identifier
-  (compiling source file 'AttendHub.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(57,18): error C2065: 'cin': undeclared identifier
-  (compiling source file 'AttendHub.cpp')
-  
 C:\Users\adhik\source\repos\AttendHub\AttendHub\AttendHub.cpp(29,15): warning C4309: 'initializing': truncation of constant value
-  People.cpp
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,33): error C2065: 'numeric_limits': undeclared identifier
-  (compiling source file 'People.cpp')
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440: '=': cannot convert from 'const char [1]' to 'DataType'
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:         with
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:         [
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:             DataType=char
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:         ]
+  (compiling source file 'AttendHub.cpp')
+  C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24):
+  There is no context in which this conversion is possible
+  C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\adhik\source\repos\AttendHub\AttendHub\AttendHub.cpp(106,9):
+  	see reference to function template instantiation 'void takeInput<char>(DataType *,bool)' being compiled
+          with
+          [
+              DataType=char
+          ]
   
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,33): error C3861: 'numeric_limits': identifier not found
-  (compiling source file 'People.cpp')
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440: '=': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'DataType'
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:         with
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:         [
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:             DataType=char
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:         ]
+  (compiling source file 'AttendHub.cpp')
+  C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39):
+  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
   
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,48): error C3861: 'streamsize': identifier not found
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(53,49): error C2065: 'endl': undeclared identifier
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(53,49): error C3861: 'endl': identifier not found
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(57,18): error C2065: 'cin': undeclared identifier
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(57,18): error C3861: 'cin': identifier not found
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(52,48): error C2065: 'streamsize': undeclared identifier
-  (compiling source file 'People.cpp')
-  
-  Generating Code...
