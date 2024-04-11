@@ -1,0 +1,9 @@
+﻿  Admin.cpp
+  AttendHub.cpp
+  Instructor.cpp
+  Student.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 10 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  AttendHub.vcxproj -> C:\Users\adhik\source\repos\AttendHub\x64\Release\AttendHub.exe
