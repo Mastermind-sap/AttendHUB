@@ -1,28 +1,24 @@
 ﻿  AttendHub.cpp
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(25,13): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'AttendHub.cpp')
+  
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(31,18): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'AttendHub.cpp')
+  
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(34,18): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'AttendHub.cpp')
+  
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(41,18): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'AttendHub.cpp')
+  
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(48,18): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'AttendHub.cpp')
+  
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(55,18): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'AttendHub.cpp')
+  
+C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(62,18): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'AttendHub.cpp')
+  
 C:\Users\adhik\source\repos\AttendHub\AttendHub\AttendHub.cpp(29,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440: '=': cannot convert from 'const char [1]' to 'DataType'
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:         with
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:         [
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:             DataType=char
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24): error C2440:         ]
-  (compiling source file 'AttendHub.cpp')
-  C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24):
-  There is no context in which this conversion is possible
-  C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(24,24):
-  the template instantiation context (the oldest one first) is
-  	C:\Users\adhik\source\repos\AttendHub\AttendHub\AttendHub.cpp(106,9):
-  	see reference to function template instantiation 'void takeInput<char>(DataType *,bool)' being compiled
-          with
-          [
-              DataType=char
-          ]
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440: '=': cannot convert from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'DataType'
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:         with
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:         [
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:             DataType=char
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39): error C2440:         ]
-  (compiling source file 'AttendHub.cpp')
-  C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(27,39):
-  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-  
+  AttendHub.vcxproj -> C:\Users\adhik\source\repos\AttendHub\x64\Debug\AttendHub.exe
