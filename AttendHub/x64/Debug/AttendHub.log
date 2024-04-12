@@ -1,4 +1,6 @@
-﻿  AttendHub.cpp
+﻿  Admin.cpp
+  AttendHub.cpp
+  Generating Code...
 C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(31,13): warning C4984: 'if constexpr' is a C++17 language extension
   (compiling source file 'AttendHub.cpp')
   
@@ -21,27 +23,4 @@ C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(68,18): warning C4
   (compiling source file 'AttendHub.cpp')
   
 C:\Users\adhik\source\repos\AttendHub\AttendHub\AttendHub.cpp(29,15): warning C4309: 'initializing': truncation of constant value
-  People.cpp
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(31,13): warning C4984: 'if constexpr' is a C++17 language extension
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(37,18): warning C4984: 'if constexpr' is a C++17 language extension
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(40,18): warning C4984: 'if constexpr' is a C++17 language extension
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(47,18): warning C4984: 'if constexpr' is a C++17 language extension
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(54,18): warning C4984: 'if constexpr' is a C++17 language extension
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(61,18): warning C4984: 'if constexpr' is a C++17 language extension
-  (compiling source file 'People.cpp')
-  
-C:\Users\adhik\source\repos\AttendHub\AttendHub\customInput.h(68,18): warning C4984: 'if constexpr' is a C++17 language extension
-  (compiling source file 'People.cpp')
-  
-  Generating Code...
   AttendHub.vcxproj -> C:\Users\adhik\source\repos\AttendHub\x64\Debug\AttendHub.exe
