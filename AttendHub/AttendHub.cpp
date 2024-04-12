@@ -12,7 +12,6 @@
 #include"customInput.h"
 #include "People.h"
 #include "Student.h"
-#include "AttendHub.h"
 
 #ifdef _WIN32
 void gotoxy(int x, int y) {
@@ -74,123 +73,6 @@ void startScreen() {
 }
 #endif
 
-
-// Will be implementing in upcoming versions:
-//void Admin() {
-//    while (true)
-//    {
-//        std::cout << "Admin Mode" << std::endl;
-//        std::cout << "1. Login" << std::endl;
-//        std::cout << "2. Signup" << std::endl;
-//        std::cout << "3. Add class" << std::endl;
-//        std::cout << "4. Assign teacher" << std::endl;
-//        std::cout << "5. Show Profile" << std::endl;
-//        std::cout << "6. LogOut" << std::endl;
-//        char adminChoice;
-//        takeInput(&adminChoice);
-//        switch (adminChoice) {
-//        case '1':
-//            // Implement Login functionality
-//            break;
-//        case '2':
-//            // Implement Signup functionality
-//            break;
-//        case '3':
-//            // Implement Add class functionality
-//            break;
-//        case '4':
-//            // Implement Assign teacher functionality
-//            break;
-//        case '5':
-//            // Implement Show Profile functionality
-//            break;
-//        case '6':
-//            return; // Log out
-//        default:
-//            std::cout << "Invalid choice. Please try again." << std::endl;
-//            break;
-//        }
-//    }
-//}
-//
-//
-//
-//void Instructor() {
-//    while (true) {
-//        std::cout << "Instructor Mode" << std::endl;
-//        std::cout << "1. Login" << std::endl;
-//        std::cout << "2. Signup" << std::endl;
-//        std::cout << "3. Take attendance" << std::endl;
-//        std::cout << "2. View class schedule" << std::endl;
-//        std::cout << "3. Grade assignments" << std::endl;
-//        std::cout << "4. Show Profile" << std::endl;
-//        std::cout << "5. LogOut" << std::endl;
-//        char instructorChoice;
-//        takeInput(&instructorChoice);
-//        switch (instructorChoice) {
-//        case '1':
-//            // Implement Take attendance functionality
-//            break;
-//        case '2':
-//            // Implement View class schedule functionality
-//            break;
-//        case '3':
-//            // Implement Grade assignments functionality
-//            break;
-//        case '4':
-//            // Implement Show Profile functionality
-//            break;
-//        case '5':
-//            return; // Log out
-//        default:
-//            std::cout << "Invalid choice. Please try again." << std::endl;
-//            break;
-//        }
-//    }
-//}
-void Menu() {
-    char choice;
-    do
-    {
-        std::cout << "\n\t\t\t\t\t\t  AttendHUB \n";
-        std::cout << "\t\t\t\t________________________________________________\n\n";
-        std::cout << "\n\t\t\t\t\t\t1 -> Login\n";
-        std::cout << "\n\t\t\t\t\t\t2 -> Signup\n";
-        std::cout << "\n\t\t\t\t\t(Any other key) -> Exit\n";
-        std::cout << "\n\t\t\t||Choose your option (Enter number corressponding to your selection): ";
-        takeInput(&choice);
-        Student s;
-        switch (choice)
-        {
-        case '1':
-            if (s.login()) {
-                std::cout << "Login Successfull!!\n";
-                StudentMenu(s);
-            }
-            else {
-                std::cout << "Login Unsuccessfull!!\n";
-            }
-            break;
-        case '2':
-            if (s.signup()) {
-                std::cout << "Signup Successfull!!\n";
-                StudentMenu(s);
-            }
-            else {
-                std::cout << "Signup Unsuccessfull!!\n";
-            }
-            break;
-        default:
-            std::cout << "Are you sure you want to exit?(Y,N)" << std::endl;
-            char c;
-            takeInput(&c);
-            if (c == 'y' || c == 'Y')
-            {
-                exit(0);
-            }
-        }
-    } while (true);
-}
 void StudentMenu(Student& s) { // Pass Student object by reference
     while (true) {
         std::cout << "Student Menu" << std::endl;
@@ -244,50 +126,48 @@ void StudentMenu(Student& s) { // Pass Student object by reference
     }
 }
 
+void Menu() {
+    clearScreen();
+    char choice;
+    do
+    {
+        std::cout << "\n\t\t\t\t\t\t  AttendHUB \n";
+        std::cout << "\t\t\t\t________________________________________________\n\n";
+        std::cout << "\n\t\t\t\t\t\t1 -> Login\n";
+        std::cout << "\n\t\t\t\t\t\t2 -> Signup\n";
+        std::cout << "\n\t\t\t\t\t(Any other key) -> Exit\n";
+        std::cout << "\n\t\t\t||Choose your option (Enter number corressponding to your selection): ";
+        takeInput(&choice);
+        Student s;
+        switch (choice)
+        {
+        case '1':
+            if (s.login()) {
+                StudentMenu(s);
+            }
+            break;
+        case '2':
+            if (s.signup()) {   
+                StudentMenu(s);
+            }
+            break;
+        default:
+            std::cout << "Are you sure you want to exit?(Y,N)" << std::endl;
+            char c;
+            takeInput(&c);
+            if (c == 'y' || c == 'Y')
+            {
+                exit(0);
+            }
+        }
+    } while (true);
+}
+
+
 
 int main()
 {
     //Uncomment for an animated start screen
     //startScreen();
     Menu();
-
-
-
-    // Will implement in upcomming versions:
-    //char choice;
-    //do
-    //{
-    //    //clearScreen();
-
-    //    std::cout << "\n\t\t\t\t\t\t  AttendHUB \n";
-    //    std::cout << "\t\t\t\t________________________________________________\n\n";
-    //    std::cout << "\n\t\t\t\t\t\t1 -> Admin\n";
-    //    std::cout << "\n\t\t\t\t\t\t2 -> Instructor\n";
-    //    std::cout << "\n\t\t\t\t\t\t3 -> Student\n";
-
-    //    //std::cout << "\n\t\t\t\t\t\t6. About Developers\n";
-    //    std::cout << "\n\t\t\t\t\t(Any other key) -> Exit\n";
-    //    std::cout << "\n\t\t\t||Choose your option (Enter number corressponding to your selection): ;
-    //    takeInput(&choice);
-    //    switch (choice)
-    //    {
-    //    case '1':
-    //        Admin();
-    //        break;
-    //    case '2':
-    //        Instructor();
-    //        break;
-    //    case '3':
-    //        Student();
-    //        break;
-    //    default:
-    //        std::cout << "Are you sure you want to exit?(Y,N)" << std::endl;
-    //        char c;
-    //        takeInput(&c);
-    //        if (c == 'y' || c == 'Y')
-    //        {
-    //            exit(0);
-    //        }
-    //    }
-    //} while (true);
 }

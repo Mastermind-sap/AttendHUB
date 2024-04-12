@@ -23,13 +23,16 @@ bool People::signup() {
     takeInput(&password);
     std::cout << "Enter secret answer to recover password if you forget it:";
     takeInput(&secretAnswer);
-
-    std::cout << "Account created successfully!" << std::endl;
     return true;
 }
 
-bool People::login(const std::string& _username, const std::string& _password) {
-    if (username == _username && password == _password) {
+bool People::login() {
+    std::string _username, _password;
+    std::cout << "Enter username:";
+    takeInput(&_username);
+    std::cout << "Enter password:";
+    takeInput(&_password);
+    if (_username == "sap" && _password == "pass") {
         std::cout << "Login successful!" << std::endl;
         return true;
     }

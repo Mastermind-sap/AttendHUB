@@ -127,20 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Admin.cpp" />
-    <ClCompile Include="AttendanceRecord.cpp" />
     <ClCompile Include="AttendHub.cpp" />
-    <ClCompile Include="Class.cpp" />
-    <ClCompile Include="Instructor.cpp" />
     <ClCompile Include="People.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Admin.h" />
-    <ClInclude Include="AttendanceRecord.h" />
-    <ClInclude Include="Class.h" />
     <ClInclude Include="customInput.h" />
-    <ClInclude Include="Instructor.h" />
     <ClInclude Include="People.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
