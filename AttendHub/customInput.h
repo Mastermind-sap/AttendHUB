@@ -11,10 +11,16 @@
 #include <type_traits>
 
 template <typename DataType>
-void takeInput(DataType* var) {
+void takeInput(DataType* var,bool isSentence=true) {
     while (true) {
         std::string input;
         std::getline(std::cin, input); // Read input as string
+
+        // If not a sentence, extract only the first word
+        if (!isSentence) {
+            std::istringstream iss(input);
+            iss >> input; // Extract first word
+        }
 
         try {
             /*constexpr is a keyword in C++ that specifies 

@@ -14,9 +14,9 @@ bool People::signup() {
 
     //If username is unique, create the account
     std::cout << "Enter first name:";
-    takeInput(&firstName);
+    takeInput(&firstName,false);
     std::cout << "Enter last name:";
-    takeInput(&lastName);
+    takeInput(&lastName,false);
     std::cout << "Enter Date of Birth:";
     takeInput(&dob);
     std::cout << "Enter password:";
