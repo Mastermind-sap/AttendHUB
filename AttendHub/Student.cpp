@@ -1,5 +1,6 @@
 #include "Student.h"
 #include "customInput.h"
+#include "DatabaseManager.h"
 
 Student::Student(const std::string& _firstName, const std::string& _lastName, const std::string& _dob, const std::string& _username, const std::string& _password, const std::string& _secretAnswer, const std::string& _branch, char _section, const int& _yearOfPass, const int& _scholarID)
     : People(_firstName, _lastName, _dob, _username, _password, _secretAnswer), branch(_branch), section(_section), yearOfPass(_yearOfPass), scholarID(_scholarID) {}
@@ -21,9 +22,15 @@ bool Student::signup() {
         std::cout << "Enter scholar ID: ";
         takeInput(&scholarID);
 
-        std::cout << "Student account created successfully!" << std::endl;
-        std::cout << "Signup Successfull!!\n";
-        return true;
+        // Use DatabaseManager to add student to the database
+        DatabaseManager dbManager;
+        bool check=dbManager.addStudent(firstName, lastName, dob, branch, section, yearOfPass, username, password, secretAnswer);
+        if(check)
+        {
+            std::cout << "Student account created successfully!" << std::endl;
+            std::cout << "Signup Successfull!!\n";
+        }
+        return check;
     }
     else {
         std::cout << "Signup Unsuccessfull!!\n";
@@ -37,6 +44,9 @@ bool Student::login() {
 }
 void Student::viewSubjects()
 {
+    // Use DatabaseManager to view subjects for this student
+    DatabaseManager dbManager;
+    dbManager.viewSubjects(scholarID);
 }
 
 void Student::addSubject()

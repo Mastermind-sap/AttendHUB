@@ -1,13 +1,36 @@
 #include "People.h"
 #include "customInput.h"
+#include "DatabaseManager.h"
 
 People::People(const std::string& _firstName, const std::string& _lastName, const std::string& _dob, const std::string& _username, const std::string& _password, const std::string& _secretAnswer)
     : firstName(_firstName), lastName(_lastName), dob(_dob), username(_username), password(_password), secretAnswer(_secretAnswer) {}
 
+
+
+// Getter methods
+std::string People::getFirstName() const { return firstName; }
+std::string People::getLastName() const { return lastName; }
+std::string People::getDOB() const { return dob; }
+std::string People::getUsername() const { return username; }
+std::string People::getPassword() const { return password; }
+std::string People::getSecretAnswer() const { return secretAnswer; }
+
+
+// Setter methods
+void People::setFirstName(const std::string& _firstName) { firstName = _firstName; }
+void People::setLastName(const std::string& _lastName) { lastName = _lastName; }
+void People::setDOB(const std::string& _dob) { dob = _dob; }
+void People::setUsername(const std::string& _username) { username = _username; }
+void People::setPassword(const std::string& _password) { password = _password; }
+void People::setSecretAnswer(const std::string& _secretAnswer) { secretAnswer = _secretAnswer; }
+
+
 bool People::signup() {
     std::cout << "Enter username:";
     takeInput(&username);
-    if ("sap" == username) {
+    // Check if username already exists in the database
+    DatabaseManager dbManager;
+    if (dbManager.isUsernameExists(username)) {
         std::cout << "Username already exists! Please choose another username." << std::endl;
         return false;
     }
@@ -32,7 +55,9 @@ bool People::login() {
     takeInput(&_username);
     std::cout << "Enter password:";
     takeInput(&_password);
-    if (_username == "sap" && _password == "pass") {
+    // Check if the username and password match in the database
+    DatabaseManager dbManager;
+    if (dbManager.verifyUser(_username, _password)) {
         std::cout << "Login successful!" << std::endl;
         return true;
     }

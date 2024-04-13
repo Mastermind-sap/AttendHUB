@@ -12,6 +12,8 @@
 #include"customInput.h"
 #include "People.h"
 #include "Student.h"
+#include <sqlite3.h>
+using namespace std;
 
 #ifdef _WIN32
 void gotoxy(int x, int y) {
@@ -164,9 +166,43 @@ void Menu() {
 }
 
 
+// retrieve contents of database used by selectData()
+/* argc: holds the number of results, argv: holds each value in array, azColName: holds each column returned in array, */
+static int callback(void* NotUsed, int argc, char** argv, char** azColName)
+{
+    for (int i = 0; i < argc; i++) {
+        // column name and value
+        cout << azColName[i] << ": " << argv[i] << endl;
+    }
+
+    cout << endl;
+
+    return 0;
+}
+static int selectData(const char* s)
+{
+    sqlite3* DB;
+    char* messageError;
+
+    string sql = "SELECT * FROM students;";
+
+    int exit = sqlite3_open(s, &DB);
+    /* An open database, SQL to be evaluated, Callback function, 1st argument to callback, Error msg written here*/
+    exit = sqlite3_exec(DB, sql.c_str(), callback, NULL, &messageError);
+
+    if (exit != SQLITE_OK) {
+        cerr << "Error in selectData function." << endl;
+        sqlite3_free(messageError);
+    }
+    else
+        cout << "Records selected Successfully!" << endl;
+
+    return 0;
+}
 
 int main()
 {
+    selectData("C:\\Users\\adhik\\OneDrive\\Desktop\\junk\\data.db");
     //Uncomment for an animated start screen
     //startScreen();
     Menu();
