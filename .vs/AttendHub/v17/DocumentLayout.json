@@ -1,36 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\adhik\\source\\repos\\AttendHub\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\DatabaseManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\DatabaseManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\Student.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\Student.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\DatabaseManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\DatabaseManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\People.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\AttendHub.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\AttendHub.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\Student.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\Student.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5342F3D8-7233-4004-ADAD-7438304A2725}|AttendHub\\AttendHub.vcxproj|solutionrelative:AttendHub\\People.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -38,103 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Student.cpp",
-              "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\Student.cpp",
-              "RelativeDocumentMoniker": "AttendHub\\Student.cpp",
-              "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\Student.cpp",
-              "RelativeToolTip": "AttendHub\\Student.cpp",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T23:47:45.348Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AttendHub.cpp",
-              "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\AttendHub.cpp",
-              "RelativeDocumentMoniker": "AttendHub\\AttendHub.cpp",
-              "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\AttendHub.cpp",
-              "RelativeToolTip": "AttendHub\\AttendHub.cpp",
-              "ViewState": "AQIAALYAAAAAAAAAAAAAAMQAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-13T00:51:21.456Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "People.cpp",
-              "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.cpp",
-              "RelativeDocumentMoniker": "AttendHub\\People.cpp",
-              "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.cpp",
-              "RelativeToolTip": "AttendHub\\People.cpp",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADsAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T23:49:44.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DatabaseManager.cpp",
-              "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\DatabaseManager.cpp",
-              "RelativeDocumentMoniker": "AttendHub\\DatabaseManager.cpp",
-              "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\DatabaseManager.cpp",
-              "RelativeToolTip": "AttendHub\\DatabaseManager.cpp",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAGUAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T20:49:29.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DatabaseManager.h",
-              "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\DatabaseManager.h",
-              "RelativeDocumentMoniker": "AttendHub\\DatabaseManager.h",
-              "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\DatabaseManager.h",
-              "RelativeToolTip": "AttendHub\\DatabaseManager.h",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAAB8AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T20:48:56.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Student.h",
-              "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\Student.h",
-              "RelativeDocumentMoniker": "AttendHub\\Student.h",
-              "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\Student.h",
-              "RelativeToolTip": "AttendHub\\Student.h",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACEAAABZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-13T00:29:45.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "People.h",
-              "DocumentMoniker": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.h",
-              "RelativeDocumentMoniker": "AttendHub\\People.h",
-              "ToolTip": "C:\\Users\\adhik\\source\\repos\\AttendHub\\AttendHub\\People.h",
-              "RelativeToolTip": "AttendHub\\People.h",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAlwCcAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-13T00:26:00.087Z",
-              "EditorCaption": ""
             }
           ]
         }

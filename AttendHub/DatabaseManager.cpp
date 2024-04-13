@@ -64,10 +64,11 @@ void DatabaseManager::createTablesIfNotExist() {
 
 // Function to check if username already exists
 bool DatabaseManager::isUsernameExists(const std::string& username, const std::string& type) {
-    std::string sql = "SELECT COUNT(*) FROM "+type+" WHERE username = '" + username + "'; ";
     sqlite3_stmt* stmt;
+    std::string sql = "SELECT COUNT(*) FROM " + type + " WHERE username = ?;";
     int result = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
     if (result == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
         if (sqlite3_step(stmt) == SQLITE_ROW) {
             int count = sqlite3_column_int(stmt, 0);
             sqlite3_finalize(stmt);
@@ -81,27 +82,21 @@ bool DatabaseManager::isUsernameExists(const std::string& username, const std::s
 // Function to verify User
 bool DatabaseManager::verifyUser(const std::string& username, const std::string& password, const std::string& type) {
     sqlite3_stmt* stmt;
-    std::string sql = "SELECT COUNT(*) FROM " + type + " WHERE username = '"+username+"' AND password = '"+ password +"' ; ";
+    std::string sql = "SELECT COUNT(*) FROM " + type + " WHERE username = ? AND password = ?;";
     int result = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
-    //std::cout << result << std::endl;
     if (result == SQLITE_OK) {
         sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
         sqlite3_bind_text(stmt, 2, password.c_str(), -1, SQLITE_STATIC);
-        //std::cout << "SQL Query: " << sql << std::endl;
         if (sqlite3_step(stmt) == SQLITE_ROW) {
             int count = sqlite3_column_int(stmt, 0);
             sqlite3_finalize(stmt);
-            //std::cout << count << std::endl;
             return (count > 0);
         }
     }
-    else {
-        std::cerr << "Error preparing SQL statement: " << sqlite3_errmsg(db) << std::endl;
-    }
     sqlite3_finalize(stmt);
-    //std::cout<<"FAILED\n";
     return false;
 }
+
 
 void DatabaseManager::fetchDetails(Student& student, const std::string& username) {
     // Fetch student details from the database using the provided username

@@ -40,8 +40,14 @@ bool Student::signup() {
 
 
 bool Student::login() {
-    return People::login();
+    if (People::login()) {
+        DatabaseManager dbManager;
+        dbManager.fetchDetails(*this, username);
+        return true;
+    }
+    return false;
 }
+
 void Student::viewSubjects()
 {
     // Use DatabaseManager to view subjects for this student

@@ -58,6 +58,7 @@ bool People::login() {
     // Check if the username and password match in the database
     DatabaseManager dbManager;
     if (dbManager.verifyUser(_username, _password)) {
+        setUsername(_username);
         std::cout << "Login successful!" << std::endl;
         return true;
     }
