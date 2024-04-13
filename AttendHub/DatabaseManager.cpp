@@ -97,6 +97,55 @@ bool DatabaseManager::verifyUser(const std::string& username, const std::string&
     return false;
 }
 
+bool DatabaseManager::verifySecret(std::string username, std::string secret, const std::string& type) {
+    // Check if the username and secret match in the database
+    std::string sql = "SELECT COUNT(*) FROM "+type+" WHERE username = ? AND secret = ?;";
+    sqlite3_stmt* stmt;
+    int result = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
+    if (result == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 2, secret.c_str(), -1, SQLITE_STATIC);
+        if (sqlite3_step(stmt) == SQLITE_ROW) {
+            int count = sqlite3_column_int(stmt, 0);
+            sqlite3_finalize(stmt);
+            if(count>0)
+            {
+                std::cout << "Welcome back " + username << std::endl;
+            }
+            else {
+                std::cout << "Either the password or the secret entered was wrong!" << std::endl;
+            }
+            return (count > 0);
+        }
+    }
+    std::cout << "Verification unsuccessful!" << std::endl;
+    sqlite3_finalize(stmt);
+    return false;
+}
+
+bool DatabaseManager::changePassword(const std::string& username, const std::string& newPassword, const std::string& type) {
+    // Update the password in the database
+    std::string sql = "UPDATE "+type+" SET password = ? WHERE username = ?;";
+    sqlite3_stmt* stmt;
+    int result = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
+    if (result == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 1, newPassword.c_str(), -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 2, username.c_str(), -1, SQLITE_STATIC);
+        if (sqlite3_step(stmt) == SQLITE_DONE) {
+            std::cout << "Password changed successfully!" << std::endl;
+            return true;
+        }
+        else {
+            std::cerr << "Error changing password: " << sqlite3_errmsg(db) << std::endl;
+        }
+    }
+    else {
+        std::cerr << "Error preparing SQL statement: " << sqlite3_errmsg(db) << std::endl;
+    }
+    return false;
+    sqlite3_finalize(stmt);
+}
+
 
 void DatabaseManager::fetchDetails(Student& student, const std::string& username) {
     // Fetch student details from the database using the provided username

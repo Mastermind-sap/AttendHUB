@@ -48,6 +48,14 @@ bool Student::login() {
     return false;
 }
 
+bool Student::forgotPassword() {
+    if (People::forgotPassword()) {
+        DatabaseManager dbManager;
+        dbManager.fetchDetails(*this, username);
+        return true;
+    }
+    return false;
+}
 void Student::viewSubjects()
 {
     // Use DatabaseManager to view subjects for this student

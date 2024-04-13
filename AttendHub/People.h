@@ -42,8 +42,8 @@ public:
     virtual bool signup();
     virtual bool login();
     void showDetails();
-    void changePassword(const std::string& _username, const std::string& oldPass, const std::string& newPass);
-    void forgotPassword(const std::string& _username, const std::string& _secretAnswer);
+    bool changePassword();
+    bool forgotPassword();
 };
 
 #endif

@@ -77,21 +77,45 @@ void People::showDetails() {
     std::cout << "Secret answer:" << secretAnswer << std::endl;
 }
 
-void People::changePassword(const std::string& _username, const std::string& oldPass, const std::string& newPass) {
-    if (username == _username && password == oldPass) {
-        password = newPass;
-        std::cout << "Password changed successfully!" << std::endl;
+bool People::changePassword() {
+    std::string oldPass;
+    DatabaseManager dbManager;
+    if (username == "") {
+        std::cout << "Enter username: ";
+        takeInput(&username);
     }
-    else {
-        std::cout << "Incorrect username or password!" << std::endl;
+    std::cout << "Enter old password: ";
+    takeInput(&oldPass);
+    if (dbManager.verifyUser(username,oldPass)){
+        std::string newPass;
+        std::cout << "Enter new password: ";
+        takeInput(&newPass);
+        if (dbManager.changePassword(username, newPass)) {
+            setPassword(newPass);
+            return true;
+        }
     }
+    return false;
 }
 
-void People::forgotPassword(const std::string& _username, const std::string& _secretAnswer) {
-    if (username == _username && secretAnswer == _secretAnswer) {
-        std::cout << "Your password is: " << password << std::endl;
+bool People::forgotPassword() {
+    std::string username, secret;
+    DatabaseManager dbManager;
+    std::cout << "Enter username: ";
+    takeInput(&username);
+
+    std::cout << "Enter secret: ";
+    takeInput(&secret);
+    
+    if (dbManager.verifySecret(username, secret)) {
+        setUsername(username);
+        std::string newPass;
+        std::cout << "Enter new password: ";
+        takeInput(&newPass);
+        if(dbManager.changePassword(username, newPass))
+        {
+            return true;
+        }
     }
-    else {
-        std::cout << "Incorrect username or secret answer!" << std::endl;
-    }
+    return false;
 }

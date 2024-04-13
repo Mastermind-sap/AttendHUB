@@ -30,6 +30,8 @@ public:
     // CRUD functions for student table
     bool isUsernameExists(const std::string& username, const std::string& type = "students");
     bool verifyUser(const std::string& username, const std::string& password, const std::string& type = "students");
+    bool verifySecret(std::string username, std::string secret, const std::string& type="students");
+    bool changePassword(const std::string& username, const std::string& newPassword, const std::string& type="students");
     void fetchDetails(Student& student, const std::string& username);
     bool addStudent(const std::string& firstName, const std::string& lastName, const std::string& dob, const std::string& branch, char section, int yearOfPass, const std::string& username, const std::string& password, const std::string& secret);
     void deleteStudent(int scholarID);

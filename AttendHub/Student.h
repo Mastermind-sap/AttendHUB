@@ -35,6 +35,7 @@ public:
     
     bool login();
     bool signup();
+    bool forgotPassword();
     void viewSubjects();
     void addSubject();
     void deleteSubject();

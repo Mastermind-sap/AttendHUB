@@ -11,6 +11,7 @@
 #include<string.h>
 #include"customInput.h"
 #include "Student.h"
+#include "DatabaseManager.h"
 using namespace std;
 
 #ifdef _WIN32
@@ -83,7 +84,8 @@ void StudentMenu(Student& s) { // Pass Student object by reference
         std::cout << "5. Edit Attendance" << std::endl;
         std::cout << "6. View Attendance" << std::endl;
         std::cout << "7. View Profile" << std::endl;
-        std::cout << "8. Log Out" << std::endl;
+        std::cout << "8. Change Password" << std::endl;
+        std::cout << "9. Log Out" << std::endl;
 
         char studentChoice;
         takeInput(&studentChoice);
@@ -118,6 +120,9 @@ void StudentMenu(Student& s) { // Pass Student object by reference
             s.viewProfile();
             break;
         case '8':
+            s.changePassword();
+            break;
+        case '9':
             return; // Log out
         default:
             std::cout << "Invalid choice. Please try again." << std::endl;
@@ -135,6 +140,7 @@ void Menu() {
         std::cout << "\t\t\t\t________________________________________________\n\n";
         std::cout << "\n\t\t\t\t\t\t1 -> Login\n";
         std::cout << "\n\t\t\t\t\t\t2 -> Signup\n";
+        std::cout << "\n\t\t\t\t\t\t3 -> Forgot Password\n";
         std::cout << "\n\t\t\t\t\t(Any other key) -> Exit\n";
         std::cout << "\n\t\t\t||Choose your option (Enter number corressponding to your selection): ";
         takeInput(&choice);
@@ -148,6 +154,11 @@ void Menu() {
             break;
         case '2':
             if (s.signup()) {   
+                StudentMenu(s);
+            }
+            break;
+        case '3':
+            if (s.forgotPassword()) {
                 StudentMenu(s);
             }
             break;
