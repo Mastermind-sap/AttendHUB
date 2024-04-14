@@ -14,7 +14,8 @@ private:
 
 public:
     // Constructor
-    DatabaseManager(const std::string& dbName="C:\\Users\\adhik\\OneDrive\\Desktop\\junk\\data.db");
+    // Change the dbName according to where you want to store the sqlite database
+    DatabaseManager(const std::string& dbName="..\\data.db");
 
     // Destructor
     ~DatabaseManager();

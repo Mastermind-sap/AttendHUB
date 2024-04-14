@@ -127,10 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\sqlite-amalgamation-3450200\sqlite-amalgamation-3450200\sqlite3.c" />
     <ClCompile Include="AttendHub.cpp" />
     <ClCompile Include="DatabaseManager.cpp" />
     <ClCompile Include="People.cpp" />
+    <ClCompile Include="sqlite3.c" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Subject.cpp" />
   </ItemGroup>
