@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #ifndef CUSTOM_INPUT_H
 #define CUSTOM_INPUT_H
 

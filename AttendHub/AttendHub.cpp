@@ -86,7 +86,7 @@ void StudentMenu(Student& s) { // Pass Student object by reference
         std::cout << "7. View Profile" << std::endl;
         std::cout << "8. Edit Profile" << std::endl;
         std::cout << "9. Change Password" << std::endl;
-        std::cout << "10. Log Out" << std::endl;
+        std::cout << "A. Log Out" << std::endl;
 
         char studentChoice;
         takeInput(&studentChoice);
@@ -119,7 +119,7 @@ void StudentMenu(Student& s) { // Pass Student object by reference
         case '9':
             s.changePassword();
             break;
-        case '10':
+        case 'A':
             return; // Log out
         default:
             std::cout << "Invalid choice. Please try again." << std::endl;

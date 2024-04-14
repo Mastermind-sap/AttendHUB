@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #ifndef DATABASE_MANAGER_H
 #define DATABASE_MANAGER_H
 

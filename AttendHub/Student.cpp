@@ -93,7 +93,7 @@ void Student::viewSubjects(bool onlySubjectCodes,bool onlyAttendance,const std::
             std::cout << "Total Classes: " << subject.totalClasses << std::endl;
             std::cout << "Classes Present: " << subject.classesPresent << std::endl;
             std::cout << "Classes Absent: " << subject.totalClasses-subject.classesPresent << std::endl;
-            std::cout << "Attendance Percentage: " << (subject.classesPresent/ subject.totalClasses)*100.0<<" %" << std::endl;
+            std::cout << "Attendance Percentage: " << ((float)subject.classesPresent/ (float)subject.totalClasses)*100.0<<" %" << std::endl;
         }
         std::cout << std::endl;
     }
