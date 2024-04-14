@@ -36,7 +36,7 @@ public:
     bool login();
     bool signup();
     bool forgotPassword();
-    void viewSubjects();
+    void viewSubjects(bool onlySubjectCodes=false,bool onlyAttendance=false, const std::string&subjectCode="");
     void addSubject();
     void deleteSubject();
     void addAttendance();

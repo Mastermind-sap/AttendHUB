@@ -1,11 +1,19 @@
 #include "Subject.h"
 #include "customInput.h"
+#include <iostream>
 
-// Constructor definition
-Subject::Subject(const std::string& _subjectCode) : subjectCode(_subjectCode) {}
+// Default Constructor
+Subject::Subject() : subjectCode(""),subjectName(""),instructorName(""), totalClasses(0), classesPresent(0) {}
 
-// Function to input extra details
+// Constructor
+Subject::Subject(const std::string& _subjectCode, const std::string& _subjectName, const std::string& _instructorName, int _totalClasses, int _classesPresent)
+    : subjectCode(_subjectCode), subjectName(_subjectName), instructorName(_instructorName), totalClasses(_totalClasses), classesPresent(_classesPresent) {}
+
+// Function to input details
 void Subject::inputDetails() {
+    std::cout << "Enter subject code: ";
+    takeInput(&subjectCode);
+
     std::cout << "Enter subject name: ";
     takeInput(&subjectName);
 
@@ -19,7 +27,7 @@ void Subject::inputDetails() {
     takeInput(&classesPresent);
 }
 
-// Function to display subject details
+// Function to display details
 void Subject::displayDetails() const {
     std::cout << "Subject Code: " << subjectCode << std::endl;
     std::cout << "Subject Name: " << subjectName << std::endl;

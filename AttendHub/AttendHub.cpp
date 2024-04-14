@@ -84,45 +84,42 @@ void StudentMenu(Student& s) { // Pass Student object by reference
         std::cout << "5. Edit Attendance" << std::endl;
         std::cout << "6. View Attendance" << std::endl;
         std::cout << "7. View Profile" << std::endl;
-        std::cout << "8. Change Password" << std::endl;
-        std::cout << "9. Log Out" << std::endl;
+        std::cout << "8. Edit Profile" << std::endl;
+        std::cout << "9. Change Password" << std::endl;
+        std::cout << "10. Log Out" << std::endl;
 
         char studentChoice;
         takeInput(&studentChoice);
 
         switch (studentChoice) {
         case '1':
-            // Implement View Subjects functionality
             s.viewSubjects();
             break;
         case '2':
-            // Implement Add Subjects functionality
             s.addSubject();
             break;
         case '3':
-            // Implement Delete Subjects functionality
             s.deleteSubject();
             break;
         case '4':
-            // Implement Add Attendance functionality
             s.addAttendance();
             break;
         case '5':
-            // Implement Edit Attendance functionality
             s.editAttendance();
             break;
         case '6':
-            // Implement View Attendance functionality
             s.viewAttendance();
             break;
         case '7':
-            // Implement View Profile functionality
             s.viewProfile();
             break;
         case '8':
-            s.changePassword();
+            //s.editProfile();
             break;
         case '9':
+            s.changePassword();
+            break;
+        case '10':
             return; // Log out
         default:
             std::cout << "Invalid choice. Please try again." << std::endl;
