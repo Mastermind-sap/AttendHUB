@@ -11,7 +11,7 @@ bool Student::signup() {
     bool success = People::signup();
     if (success) {
         // Prompt for additional student details
-        std::cout << "Enter scholar ID: ";
+        std::cout << "\t\t\t\tEnter scholar ID: ";
         takeInput(&scholarID);
 
         // Use DatabaseManager to add student to the database
@@ -19,29 +19,29 @@ bool Student::signup() {
 
         // Verifying if Scholar id is unique
         if (dbManager.isScholarIDExists(scholarID)) {
-            std::cout << "Scholar ID already exists! Please enter valid scholar ID." << std::endl;
+            std::cout << "\t\t\t\tScholar ID already exists! Please enter valid scholar ID." << std::endl;
             return false;
         }
 
-        std::cout << "Enter branch: ";
+        std::cout << "\t\t\t\tEnter branch: ";
         takeInput(&branch);
 
-        std::cout << "Enter section: ";
+        std::cout << "\t\t\t\tEnter section: ";
         takeInput(&section);
 
-        std::cout << "Enter year of passing: ";
+        std::cout << "\t\t\t\tEnter year of passing: ";
         takeInput(&yearOfPass);
 
         bool check=dbManager.addStudent(scholarID,firstName, lastName, dob, branch, section, yearOfPass, username, password, secretAnswer);
         if(check)
         {
-            std::cout << "Student account created successfully!" << std::endl;
-            std::cout << "Signup Successfull!!\n";
+            std::cout << "\n\t\t\t\tStudent account created successfully!" << std::endl;
+            std::cout << "\t\t\t\tSignup Successfull!!\n";
         }
         return check;
     }
     else {
-        std::cout << "Signup Unsuccessfull!!\n";
+        std::cout << "\n\t\t\t\tSignup Unsuccessfull!!\n";
         return false;
     }
 }
@@ -86,22 +86,22 @@ void Student::viewSubjects(bool onlySubjectCodes,bool onlyAttendance,const std::
 {
     // Use DatabaseManager to view subjects for this student
     DatabaseManager dbManager;
-    std::vector<SubjectDetails> subjects = dbManager.getSubjects(scholarID,subjectCode);
+    std::vector<Subject> subjects = dbManager.getSubjects(scholarID,subjectCode);
 
     // Print all subject details
     for (const auto& subject : subjects) {
-        std::cout << "Subject Code: " << subject.subjectCode << std::endl;
+        std::cout << "Subject Code: " << subject.getSubjectCode() << std::endl;
         if(!onlySubjectCodes)
         {
             if(!onlyAttendance)
             {
-                std::cout << "Subject Name: " << subject.subjectName << std::endl;
-                std::cout << "Instructor Name: " << subject.instructorName << std::endl;
+                std::cout << "Subject Name: " << subject.getSubjectName()<< std::endl;
+                std::cout << "Instructor Name: " << subject.getInstructorName() << std::endl;
             }
-            std::cout << "Total Classes: " << subject.totalClasses << std::endl;
-            std::cout << "Classes Present: " << subject.classesPresent << std::endl;
-            std::cout << "Classes Absent: " << subject.totalClasses-subject.classesPresent << std::endl;
-            std::cout << "Attendance Percentage: " << ((float)subject.classesPresent/ (float)subject.totalClasses)*100.0<<" %" << std::endl;
+            std::cout << "Total Classes: " << subject.getTotalClasses() << std::endl;
+            std::cout << "Classes Present: " << subject.getClassesPresent()<< std::endl;
+            std::cout << "Classes Absent: " << subject.getTotalClasses() - subject.getClassesPresent() << std::endl;
+            std::cout << "Attendance Percentage: " << ((float)subject.getClassesPresent() / (float)subject.getTotalClasses())*100.0<<" %" << std::endl;
         }
         std::cout << std::endl;
     }
@@ -173,12 +173,12 @@ void Student::addAttendance()
 
     if (attendanceStatus == 'P' || attendanceStatus == 'p')
     {
-        subjects[0].totalClasses += 1;
-        subjects[0].classesPresent += 1;
+        subjects[0].setTotalClasses(subjects[0].getTotalClasses()+ 1);
+        subjects[0].setClassesPresent(subjects[0].getClassesPresent() + 1);
     }
     else if (attendanceStatus == 'A' || attendanceStatus == 'a')
     {
-        subjects[0].totalClasses += 1;
+        subjects[0].setTotalClasses(subjects[0].getTotalClasses() + 1);
     }
     else
     {
@@ -187,7 +187,7 @@ void Student::addAttendance()
     }
 
     // Use DatabaseManager to add attendance for this student
-    dbManager.updateSubject(scholarID,subjectCode,subjects[0].subjectName,subjects[0].instructorName,subjects[0].totalClasses,subjects[0].classesPresent);
+    dbManager.updateSubject(scholarID,subjectCode,subjects[0].getSubjectName(), subjects[0].getInstructorName(), subjects[0].getTotalClasses(), subjects[0].getClassesPresent());
 }
 
 void Student::editAttendance()
@@ -226,7 +226,7 @@ void Student::editAttendance()
     }
 
     // Use DatabaseManager to edit attendance for this student
-    dbManager.updateSubject(scholarID, subjectCode, subjects[0].subjectName, subjects[0].instructorName, newTotalClasses, newClassesPresent);
+    dbManager.updateSubject(scholarID, subjectCode, subjects[0].getSubjectName(), subjects[0].getInstructorName(), newTotalClasses, newClassesPresent);
 }
 
 void Student::viewAttendance()

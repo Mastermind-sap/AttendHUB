@@ -144,7 +144,7 @@ void StudentMenu(Student& s) { // Pass Student object by reference
             clearScreen(); //clears any confidential data that is on screen
             return; // Log out
         default:
-            std::cout << "Invalid choice. Please try again." << std::endl;
+            std::cout << "\n\t\t\tInvalid choice. Please try again." << std::endl;
             break;
         }
     }
@@ -189,7 +189,7 @@ void Menu() {
             }
             break;
         default:
-            std::cout << "Are you sure you want to exit?(Y,N)" << std::endl;
+            std::cout << "\n\t\t\tAre you sure you want to exit?(Y,N)" << std::endl;
             char c;
             takeInput(&c);
             if (c == 'y' || c == 'Y')
@@ -205,6 +205,6 @@ void Menu() {
 int main()
 {
     //Uncomment for an animated start screen
-    startScreen();
+    //startScreen();
     Menu();
 }

@@ -422,8 +422,8 @@ void DatabaseManager::viewSubjects(int scholarID) {
 }
 
 // Function to view subjects for a specific student from the classes table
-std::vector<SubjectDetails> DatabaseManager::getSubjects(int scholarID, const std::string& subjectCode) {
-    std::vector<SubjectDetails> subjects;
+std::vector<Subject> DatabaseManager::getSubjects(int scholarID, const std::string& subjectCode) {
+    std::vector<Subject> subjects;
 
     // Prepare the SQL query with parameterized statement
     std::string sql;
@@ -448,15 +448,13 @@ std::vector<SubjectDetails> DatabaseManager::getSubjects(int scholarID, const st
 
         // Execute the query
         while (sqlite3_step(stmt) == SQLITE_ROW) {
-            SubjectDetails subject;
-            // Retrieve values from the database and store them in the struct
-            subject.subjectCode = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
-            subject.subjectName = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
-            subject.instructorName = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3));
-            subject.totalClasses = sqlite3_column_int(stmt, 4);
-            subject.classesPresent = sqlite3_column_int(stmt, 5);
-
-            // Push the struct into the vector
+            // Retrieve values from the database and store them in the Subject object
+            Subject subject(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)),
+                reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2)),
+                reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3)),
+                sqlite3_column_int(stmt, 4),
+                sqlite3_column_int(stmt, 5));
+            // Push the Subject object into the vector
             subjects.push_back(subject);
         }
 
@@ -468,9 +466,10 @@ std::vector<SubjectDetails> DatabaseManager::getSubjects(int scholarID, const st
         std::cerr << "\t\t\tError preparing SQL statement: " << sqlite3_errmsg(db) << std::endl;
     }
 
-    // Return the vector of subject details
+    // Return the vector of subject objects
     return subjects;
 }
+
 
 // Function to create a table for a specific scholar ID and subject code
 void DatabaseManager::createSubjectTable(const std::string& scholarID, const std::string& subjectCode) {

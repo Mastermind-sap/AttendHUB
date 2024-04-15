@@ -5,15 +5,6 @@
 #include <string>
 #include "customInput.h"
 
-// Define a struct to hold subject details
-    struct SubjectDetails {
-        std::string subjectCode;
-        std::string subjectName;
-        std::string instructorName;
-        int totalClasses;
-        int classesPresent;
-    };
-
 class Subject {
 private:
     std::string subjectCode;
@@ -39,6 +30,14 @@ public:
     std::string getInstructorName() const { return instructorName; }
     int getTotalClasses() const { return totalClasses; }
     int getClassesPresent() const { return classesPresent; }
+
+    // Setters
+    void setSubjectCode(const std::string& _subjectCode) { subjectCode = _subjectCode; }
+    void setSubjectName(const std::string& _subjectName) { subjectName = _subjectName; }
+    void setInstructorName(const std::string& _instructorName) { instructorName = _instructorName; }
+    void setTotalClasses(int _totalClasses) { totalClasses = _totalClasses; }
+    void setClassesPresent(int _classesPresent) { classesPresent = _classesPresent; }
+
 };
 
 #endif

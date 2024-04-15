@@ -11,7 +11,7 @@
 #include <type_traits>
 
 template <typename DataType>
-void takeInput(DataType* var,bool isSentence=true) {
+void takeInput(DataType* var,bool isSentence=true,bool canBeEmpty=false) {
     while (true) {
         std::string input;
         std::getline(std::cin, input); // Read input as string

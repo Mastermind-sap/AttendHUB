@@ -44,7 +44,7 @@ public:
 
     // CRUD functions for classes table
     bool subjectExists(int scholarID, const std::string& subjectCode);
-    std::vector<SubjectDetails> getSubjects(int scholarID, const std::string& subjectCode="");
+    std::vector<Subject> getSubjects(int scholarID, const std::string& subjectCode="");
     void addSubject(int scholarID, const Subject& subject);
     void deleteSubject(int scholarID, const std::string& subjectCode);
     void updateSubject(int scholarID, const std::string& subjectCode, const std::string& subjectName, const std::string& instructorName, int totalClasses, int classesPresent);
