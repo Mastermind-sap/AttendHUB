@@ -74,20 +74,41 @@ void startScreen() {
 }
 #endif
 
+void printAttendHUB() {
+    std::cout << "\t\t\t\t  +==========================================================+" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  |        _   _   _                 _ _   _ _   _ ____      |" << std::endl;
+    std::cout << "\t\t\t\t  |       / \\ | |_| |_ ___ _ __   __| | | | | | | | __ )     |" << std::endl;
+    std::cout << "\t\t\t\t  |      / _ \\| __| __/ _ \\ '_ \\ / _` | |_| | | | |  _ \\     |" << std::endl;
+    std::cout << "\t\t\t\t  |     / ___ \\ |_| ||  __/ | | | (_| |  _  | |_| | |_) |    |" << std::endl;
+    std::cout << "\t\t\t\t  |    /_/   \\_\\__|\\__\\___|_| |_|\\__,_|_| |_|\\___/|____/     |" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  |                                                          |" << std::endl;
+    std::cout << "\t\t\t\t  +==========================================================+" << std::endl;
+}
+
 void StudentMenu(Student& s) { // Pass Student object by reference
     while (true) {
-        std::cout << "Student Menu" << std::endl;
-        std::cout << "1. View Subjects" << std::endl;
-        std::cout << "2. Add Subjects" << std::endl;
-        std::cout << "3. Delete Subjects" << std::endl;
-        std::cout << "4. Add Attendance" << std::endl;
-        std::cout << "5. Edit Attendance" << std::endl;
-        std::cout << "6. View Attendance" << std::endl;
-        std::cout << "7. View Profile" << std::endl;
-        std::cout << "8. Edit Profile" << std::endl;
-        std::cout << "9. Change Password" << std::endl;
-        std::cout << "A. Log Out" << std::endl;
-
+        std::cout << "\t\t\t\t\t\t  +-----------------------------+\n";
+        std::cout << "\t\t\t\t\t\t  |         Student Menu        |\n";
+        std::cout << "\t\t\t\t\t\t  +-----------------------------+\n";
+        std::cout << "\t\t\t\t\t\t  | 1. View Subjects            |\n";
+        std::cout << "\t\t\t\t\t\t  | 2. Add Subjects             |\n";
+        std::cout << "\t\t\t\t\t\t  | 3. Delete Subjects          |\n";
+        std::cout << "\t\t\t\t\t\t  | 4. Add Attendance           |\n";
+        std::cout << "\t\t\t\t\t\t  | 5. Edit Attendance          |\n";
+        std::cout << "\t\t\t\t\t\t  | 6. View Attendance          |\n";
+        std::cout << "\t\t\t\t\t\t  | 7. View Profile             |\n";
+        std::cout << "\t\t\t\t\t\t  | 8. Edit Profile             |\n";
+        std::cout << "\t\t\t\t\t\t  | 9. Change Password          |\n";
+        std::cout << "\t\t\t\t\t\t  | A. Log Out                  |\n";
+        std::cout << "\t\t\t\t\t\t  +-----------------------------+\n";
+        std::cout << "\n\t\t\t|| Choose your option (Enter number corresponding to your selection): "; 
         char studentChoice;
         takeInput(&studentChoice);
 
@@ -120,6 +141,7 @@ void StudentMenu(Student& s) { // Pass Student object by reference
             s.changePassword();
             break;
         case 'A':
+            clearScreen(); //clears any confidential data that is on screen
             return; // Log out
         default:
             std::cout << "Invalid choice. Please try again." << std::endl;
@@ -130,16 +152,23 @@ void StudentMenu(Student& s) { // Pass Student object by reference
 
 void Menu() {
     clearScreen();
+    printAttendHUB();
     char choice;
     do
     {
-        std::cout << "\n\t\t\t\t\t\t  AttendHUB \n";
-        std::cout << "\t\t\t\t________________________________________________\n\n";
-        std::cout << "\n\t\t\t\t\t\t1 -> Login\n";
-        std::cout << "\n\t\t\t\t\t\t2 -> Signup\n";
-        std::cout << "\n\t\t\t\t\t\t3 -> Forgot Password\n";
-        std::cout << "\n\t\t\t\t\t(Any other key) -> Exit\n";
-        std::cout << "\n\t\t\t||Choose your option (Enter number corressponding to your selection): ";
+        std::cout << "\n\t\t\t\t\t\t  +-----------------------------+\n";
+        std::cout << "\t\t\t\t\t\t  |             Menu            |\n";
+        std::cout << "\t\t\t\t\t\t  +-----------------------------+\n";
+        std::cout << "\t\t\t\t\t\t  | 1 -> Login                  |\n";
+        std::cout << "\t\t\t\t\t\t  |                             |\n";
+        std::cout << "\t\t\t\t\t\t  | 2 -> Signup                 |\n";
+        std::cout << "\t\t\t\t\t\t  |                             |\n";
+        std::cout << "\t\t\t\t\t\t  | 3 -> Forgot Password        |\n";
+        std::cout << "\t\t\t\t\t\t  |                             |\n";
+        std::cout << "\t\t\t\t\t\t  | (Any other key) -> Exit     |\n";
+        std::cout << "\t\t\t\t\t\t  |                             |\n";
+        std::cout << "\t\t\t\t\t\t  +-----------------------------+\n";
+        std::cout << "\t\t\t|| Choose your option (Enter number corresponding to your selection): "; 
         takeInput(&choice);
         Student s;
         switch (choice)
@@ -176,6 +205,6 @@ void Menu() {
 int main()
 {
     //Uncomment for an animated start screen
-    //startScreen();
+    startScreen();
     Menu();
 }

@@ -26,69 +26,86 @@ void People::setSecretAnswer(const std::string& _secretAnswer) { secretAnswer = 
 
 
 bool People::signup() {
-    std::cout << "Enter username:";
+    std::cout << "\n\t\t\t\tEnter username:";
     takeInput(&username);
     // Check if username already exists in the database
     DatabaseManager dbManager;
     if (dbManager.isUsernameExists(username)) {
-        std::cout << "Username already exists! Please choose another username." << std::endl;
+        std::cout << "\n\t\t\t\tUsername already exists! Please choose another username.\n" << std::endl;
         return false;
     }
 
     //If username is unique, create the account
-    std::cout << "Enter first name:";
+    std::cout << "\n\t\t\t\tEnter first name:";
     takeInput(&firstName,false);
-    std::cout << "Enter last name:";
+    std::cout << "\t\t\t\tEnter last name:";
     takeInput(&lastName,false);
-    std::cout << "Enter Date of Birth:";
+    std::cout << "\t\t\t\tEnter Date of Birth:";
     takeInput(&dob);
-    std::cout << "Enter password:";
+    std::cout << "\t\t\t\tEnter password:";
     takeInput(&password);
-    std::cout << "Enter secret answer to recover password if you forget it:";
+    std::cout << "\t\t\t\tEnter secret answer to recover password if you forget it:";
     takeInput(&secretAnswer);
     return true;
 }
 
 bool People::login() {
     std::string _username, _password;
-    std::cout << "Enter username:";
+    std::cout << "\t\t\t\tEnter username:";
     takeInput(&_username);
-    std::cout << "Enter password:";
+    std::cout << "\t\t\t\tEnter password:";
     takeInput(&_password);
     // Check if the username and password match in the database
     DatabaseManager dbManager;
     if (dbManager.verifyUser(_username, _password)) {
         setUsername(_username);
-        std::cout << "Login successful!" << std::endl;
+        std::cout << "\n\t\t\t\tLogin successful!" << std::endl;
         return true;
     }
     else {
-        std::cout << "Login unsuccessful!" << std::endl;
+        std::cout << "\n\t\t\t\tLogin unsuccessful!" << std::endl;
         return false;
     }
 }
 
-void People::showDetails() {
-    std::cout << "Username:" << username << std::endl;
-    std::cout << "First name:"<<firstName << std::endl;
-    std::cout << "Last name:" << lastName << std::endl;
-    std::cout << "Date of Birth:" << dob << std::endl;
-    std::cout << "Password:" << password << std::endl;
-    std::cout << "Secret answer:" << secretAnswer << std::endl;
+size_t People::showDetails() {
+    // Calculate the maximum length among all fields
+    size_t maxFieldLength = std::max({ username.length(), firstName.length(), lastName.length(), dob.length(), password.length(), secretAnswer.length() });
+
+    // Compare with a fixed value
+    maxFieldLength = std::max(maxFieldLength, static_cast<size_t>(20));
+
+    // Determine the width of each column
+    size_t columnWidth = maxFieldLength + 4; // Add extra space for formatting
+
+    // Output the table with uniform column widths
+    std::cout << "\n\t\t\t\t\t\t\tUser Information\n" << std::endl;
+    std::cout << "\t\t\t\t\t+--------------------+"<< std::string(columnWidth, '-') <<"+ " << std::endl;
+    std::cout << "\t\t\t\t\t|     Field          |"<<"      Information" << std::string(columnWidth - 17, ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t+--------------------+" << std::string(columnWidth, '-') << "+ " << std::endl;
+    std::cout << "\t\t\t\t\t|     Username       |"<< username << std::string(columnWidth - username.length(), ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t|     First name     |" << firstName << std::string(columnWidth - firstName.length(), ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t|     Last name      |" << lastName << std::string(columnWidth - lastName.length(), ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t|     Date of Birth  |" << dob << std::string(columnWidth - dob.length(), ' ') << "|" << std::endl;
+    // Uncomment to print password
+    //std::cout << "\t\t\t\t\t|     Password     |     " << password << std::string(columnWidth - password.length(), ' ') << "|" << std::endl;
+    //std::cout << "\t\t\t\t\t|     Secret answer|     " << secretAnswer << std::string(columnWidth - secretAnswer.length(), ' ') << "|" << std::endl;
+    //std::cout << "\t\t\t\t\t+------------------+" << std::string(columnWidth, '-') << "+ " << std::endl;
+    return columnWidth;
 }
 
 bool People::changePassword() {
     std::string oldPass;
     DatabaseManager dbManager;
     if (username == "") {
-        std::cout << "Enter username: ";
+        std::cout << "\t\t\t\tEnter username: ";
         takeInput(&username);
     }
-    std::cout << "Enter old password: ";
+    std::cout << "\t\t\t\tEnter old password: ";
     takeInput(&oldPass);
     if (dbManager.verifyUser(username,oldPass)){
         std::string newPass;
-        std::cout << "Enter new password: ";
+        std::cout << "\t\t\t\tEnter new password: ";
         takeInput(&newPass);
         if (dbManager.changePassword(username, newPass)) {
             setPassword(newPass);
@@ -101,16 +118,16 @@ bool People::changePassword() {
 bool People::forgotPassword() {
     std::string username, secret;
     DatabaseManager dbManager;
-    std::cout << "Enter username: ";
+    std::cout << "\t\t\t\tEnter username: ";
     takeInput(&username);
 
-    std::cout << "Enter secret: ";
+    std::cout << "\t\t\t\tEnter secret: ";
     takeInput(&secret);
     
     if (dbManager.verifySecret(username, secret)) {
         setUsername(username);
         std::string newPass;
-        std::cout << "Enter new password: ";
+        std::cout << "\t\t\t\tEnter new password: ";
         takeInput(&newPass);
         if(dbManager.changePassword(username, newPass))
         {

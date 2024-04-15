@@ -41,7 +41,7 @@ public:
     
     virtual bool signup();
     virtual bool login();
-    void showDetails();
+    size_t showDetails();
     bool changePassword();
     bool forgotPassword();
 };

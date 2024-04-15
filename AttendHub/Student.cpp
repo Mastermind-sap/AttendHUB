@@ -11,6 +11,18 @@ bool Student::signup() {
     bool success = People::signup();
     if (success) {
         // Prompt for additional student details
+        std::cout << "Enter scholar ID: ";
+        takeInput(&scholarID);
+
+        // Use DatabaseManager to add student to the database
+        DatabaseManager dbManager;
+
+        // Verifying if Scholar id is unique
+        if (dbManager.isScholarIDExists(scholarID)) {
+            std::cout << "Scholar ID already exists! Please enter valid scholar ID." << std::endl;
+            return false;
+        }
+
         std::cout << "Enter branch: ";
         takeInput(&branch);
 
@@ -20,12 +32,7 @@ bool Student::signup() {
         std::cout << "Enter year of passing: ";
         takeInput(&yearOfPass);
 
-        std::cout << "Enter scholar ID: ";
-        takeInput(&scholarID);
-
-        // Use DatabaseManager to add student to the database
-        DatabaseManager dbManager;
-        bool check=dbManager.addStudent(firstName, lastName, dob, branch, section, yearOfPass, username, password, secretAnswer);
+        bool check=dbManager.addStudent(scholarID,firstName, lastName, dob, branch, section, yearOfPass, username, password, secretAnswer);
         if(check)
         {
             std::cout << "Student account created successfully!" << std::endl;
@@ -60,13 +67,14 @@ bool Student::forgotPassword() {
 
 void Student::viewProfile() {
     // Display common user details using People::showDetails method
-    People::showDetails();
+    size_t columnWidth = showDetails();
 
     // Display student-specific details
-    std::cout << "Branch: " << branch << std::endl;
-    std::cout << "Section: " << section << std::endl;
-    std::cout << "Year of Passing: " << yearOfPass << std::endl;
-    std::cout << "Scholar ID: " << scholarID << std::endl;
+    std::cout << "\t\t\t\t\t|     Branch         |" << branch << std::string(columnWidth - branch.length(), ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t|     Section        |" << section << std::string(columnWidth - 1, ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t|   Year of Passing  |" << yearOfPass << std::string(columnWidth - std::to_string(yearOfPass).length(), ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t|     Scholar ID     |" << scholarID << std::string(columnWidth - std::to_string(scholarID).length(), ' ') << "|" << std::endl;
+    std::cout << "\t\t\t\t\t+--------------------+" << std::string(columnWidth, '-') << "+ " << std::endl;
 }
 
 
