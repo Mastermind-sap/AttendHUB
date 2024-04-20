@@ -23,15 +23,15 @@ void takeInput(DataType* var,bool isSentence=true,bool canBeEmpty=false) {
         }
 
         try {
+            if (!canBeEmpty && input.empty()) {
+                throw std::invalid_argument("Input cannot be empty.");
+            }
             /*constexpr is a keyword in C++ that specifies 
             that an expression can be evaluated at compile time.
             In the context of our code, it's being used to 
             conditionally compile different branches of code 
             based on the type of DataType.*/
             if constexpr (std::is_same_v<DataType, char>) {
-                if (input.empty()) {
-                    throw std::invalid_argument("Empty input.");
-                }
                 *var = input[0];
             }
             else if constexpr (std::is_same_v<DataType, std::string>) {
