@@ -11,24 +11,37 @@ Subject::Subject(const std::string& _subjectCode, const std::string& _subjectNam
 Subject::Subject(const std::string& _subjectCode):subjectCode(_subjectCode), subjectName(""), instructorName(""), totalClasses(0), classesPresent(0) {}
 
 // Function to input details
-void Subject::inputDetails(bool takeCode) {
+void Subject::inputDetails(bool takeCode,bool initialInput) {
+    if (!initialInput) {
+        std::cout << "Enter new details(Press enter on fields you dont want to change):" << std::endl;
+    }
     if(takeCode)
     {
         std::cout << "Enter subject code: ";
         takeInput(&subjectCode);
     }
 
+    std::string _subjectName, _instructorName;
+    int _totalClasses, _classesPresent;
     std::cout << "Enter subject name: ";
-    takeInput(&subjectName);
+    takeInput(&_subjectName,true,!initialInput);
+    if (_subjectName != "")setSubjectName(_subjectName);
 
     std::cout << "Enter instructor name: ";
-    takeInput(&instructorName);
+    takeInput(&_instructorName, true, !initialInput);
+    if (_instructorName != "")setInstructorName(_instructorName);
 
     std::cout << "Enter total classes: ";
-    takeInput(&totalClasses);
+    //checks whether it is empty or not
+    if (takeInput(&_totalClasses, true, !initialInput)) {
+        setTotalClasses(_totalClasses);
+    }
 
     std::cout << "Enter classes present: ";
-    takeInput(&classesPresent);
+    //checks whether it is empty or not
+    if (takeInput(&_classesPresent, true, !initialInput)) { 
+        setClassesPresent(_classesPresent); 
+    }
 }
 
 // Function to display details

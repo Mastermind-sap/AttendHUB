@@ -20,7 +20,7 @@ public:
     Subject(const std::string& _subjectCode, const std::string& _subjectName, const std::string& _instructorName, int _totalClasses, int _classesPresent);
 
     // Function to input details
-    void inputDetails(bool takeCode=true);
+    void inputDetails(bool takeCode=true, bool initialInput=true);
 
     // Function to display details
     void displayDetails() const;

@@ -136,14 +136,15 @@ void Student::editSubject()
 
 
     // Check if the subject exists for this student
-    if (!dbManager.subjectExists(scholarID, _subjectCode))
+    auto subjects = dbManager.getSubjects(scholarID, _subjectCode);
+    if (subjects.size()==0)
     {
         std::cout << "Subject not found." << std::endl;
         return;
     }
 
-    Subject subject(_subjectCode);
-    subject.inputDetails(false);
+    Subject subject = subjects[0];
+    subject.inputDetails(false,false);
 
     if (subject.getTotalClasses() < 0 || subject.getClassesPresent() < 0 || subject.getClassesPresent() > subject.getTotalClasses()) {
         std::cout << "Invalid input. Please enter non-negative values, with classes present not exceeding total classes." << std::endl;
