@@ -99,14 +99,15 @@ void StudentMenu(Student& s) { // Pass Student object by reference
         std::cout << "\t\t\t\t\t\t  +-----------------------------+\n";
         std::cout << "\t\t\t\t\t\t  | 1. View Subjects            |\n";
         std::cout << "\t\t\t\t\t\t  | 2. Add Subjects             |\n";
-        std::cout << "\t\t\t\t\t\t  | 3. Delete Subjects          |\n";
-        std::cout << "\t\t\t\t\t\t  | 4. Add Attendance           |\n";
-        std::cout << "\t\t\t\t\t\t  | 5. Edit Attendance          |\n";
-        std::cout << "\t\t\t\t\t\t  | 6. View Attendance          |\n";
-        std::cout << "\t\t\t\t\t\t  | 7. View Profile             |\n";
-        std::cout << "\t\t\t\t\t\t  | 8. Edit Profile             |\n";
-        std::cout << "\t\t\t\t\t\t  | 9. Change Password          |\n";
-        std::cout << "\t\t\t\t\t\t  | A. Log Out                  |\n";
+        std::cout << "\t\t\t\t\t\t  | 3. Edit Subjects            |\n";
+        std::cout << "\t\t\t\t\t\t  | 4. Delete Subjects          |\n";
+        std::cout << "\t\t\t\t\t\t  | 5. Add Attendance           |\n";
+        std::cout << "\t\t\t\t\t\t  | 6. Edit Attendance          |\n";
+        std::cout << "\t\t\t\t\t\t  | 7. View Attendance          |\n";
+        std::cout << "\t\t\t\t\t\t  | 8. View Profile             |\n";
+        std::cout << "\t\t\t\t\t\t  | 9. Edit Profile             |\n";
+        std::cout << "\t\t\t\t\t\t  | A. Change Password          |\n";
+        std::cout << "\t\t\t\t\t\t  | Q. Log Out                  |\n";
         std::cout << "\t\t\t\t\t\t  +-----------------------------+\n";
         std::cout << "\n\t\t\t|| Choose your option (Enter number corresponding to your selection): "; 
         char studentChoice;
@@ -120,27 +121,30 @@ void StudentMenu(Student& s) { // Pass Student object by reference
             s.addSubject();
             break;
         case '3':
-            s.deleteSubject();
+            s.editSubject();
             break;
         case '4':
-            s.addAttendance();
+            s.deleteSubject();
             break;
         case '5':
-            s.editAttendance();
+            s.addAttendance();
             break;
         case '6':
-            s.viewAttendance();
+            s.editAttendance();
             break;
         case '7':
-            s.viewProfile();
+            s.viewAttendance();
             break;
         case '8':
-            //s.editProfile();
+            s.viewProfile();
             break;
         case '9':
-            s.changePassword();
+            //s.editProfile();
             break;
         case 'A':
+            s.changePassword();
+            break;
+        case 'Q':
             clearScreen(); //clears any confidential data that is on screen
             return; // Log out
         default:

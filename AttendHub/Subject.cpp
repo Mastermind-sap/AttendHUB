@@ -8,11 +8,15 @@ Subject::Subject() : subjectCode(""),subjectName(""),instructorName(""), totalCl
 // Constructor
 Subject::Subject(const std::string& _subjectCode, const std::string& _subjectName, const std::string& _instructorName, int _totalClasses, int _classesPresent)
     : subjectCode(_subjectCode), subjectName(_subjectName), instructorName(_instructorName), totalClasses(_totalClasses), classesPresent(_classesPresent) {}
+Subject::Subject(const std::string& _subjectCode):subjectCode(_subjectCode), subjectName(""), instructorName(""), totalClasses(0), classesPresent(0) {}
 
 // Function to input details
-void Subject::inputDetails() {
-    std::cout << "Enter subject code: ";
-    takeInput(&subjectCode);
+void Subject::inputDetails(bool takeCode) {
+    if(takeCode)
+    {
+        std::cout << "Enter subject code: ";
+        takeInput(&subjectCode);
+    }
 
     std::cout << "Enter subject name: ";
     takeInput(&subjectName);

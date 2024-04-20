@@ -38,6 +38,7 @@ public:
     bool forgotPassword();
     void viewSubjects(bool onlySubjectCodes=false,bool onlyAttendance=false, const std::string&subjectCode="");
     void addSubject();
+    void editSubject();
     void deleteSubject();
     void addAttendance();
     void editAttendance();

@@ -122,6 +122,37 @@ void Student::addSubject()
     dbManager.addSubject(scholarID, subject);
 }
 
+void Student::editSubject()
+{
+    viewSubjects(true);
+
+    // Use DatabaseManager to fetch subjects for this student
+    DatabaseManager dbManager;
+
+    // Take user input for subject code to edit
+    std::string _subjectCode;
+    std::cout << "Enter subject code to edit: ";
+    takeInput(&_subjectCode);
+
+
+    // Check if the subject exists for this student
+    if (!dbManager.subjectExists(scholarID, _subjectCode))
+    {
+        std::cout << "Subject not found." << std::endl;
+        return;
+    }
+
+    Subject subject(_subjectCode);
+    subject.inputDetails(false);
+
+    if (subject.getTotalClasses() < 0 || subject.getClassesPresent() < 0 || subject.getClassesPresent() > subject.getTotalClasses()) {
+        std::cout << "Invalid input. Please enter non-negative values, with classes present not exceeding total classes." << std::endl;
+        return;
+    }
+    // Use DatabaseManager to edit subject for this student
+    dbManager.updateSubject(scholarID, subject);
+}
+
 void Student::deleteSubject()
 {
     viewSubjects(true);
@@ -187,7 +218,7 @@ void Student::addAttendance()
     }
 
     // Use DatabaseManager to add attendance for this student
-    dbManager.updateSubject(scholarID,subjectCode,subjects[0].getSubjectName(), subjects[0].getInstructorName(), subjects[0].getTotalClasses(), subjects[0].getClassesPresent());
+    dbManager.updateSubject(scholarID,subjects[0]);
 }
 
 void Student::editAttendance()
@@ -224,9 +255,10 @@ void Student::editAttendance()
         std::cout << "Invalid input. Please enter non-negative values, with classes present not exceeding total classes." << std::endl;
         return;
     }
-
+    subjects[0].setTotalClasses(newTotalClasses);
+    subjects[0].setClassesPresent(newClassesPresent);
     // Use DatabaseManager to edit attendance for this student
-    dbManager.updateSubject(scholarID, subjectCode, subjects[0].getSubjectName(), subjects[0].getInstructorName(), newTotalClasses, newClassesPresent);
+    dbManager.updateSubject(scholarID, subjects[0]);
 }
 
 void Student::viewAttendance()

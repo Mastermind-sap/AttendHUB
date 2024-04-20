@@ -319,6 +319,34 @@ void DatabaseManager::addSubject(int scholarID, const Subject& subject) {
     sqlite3_finalize(stmt);
 }
 
+// Function to update a subject in the classes table
+void DatabaseManager::updateSubject(int scholarID, const Subject& subject) {
+    std::string sql = "UPDATE classes SET subject_name = ?, instructor_name = ?, total_classes = ?, classes_present = ? WHERE scholar_id = ? AND subject_code = ?;";
+
+    sqlite3_stmt* stmt;
+    int result = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
+    if (result == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 1, subject.getSubjectName().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 2, subject.getInstructorName().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_int(stmt, 3, subject.getTotalClasses());
+        sqlite3_bind_int(stmt, 4, subject.getClassesPresent());
+        sqlite3_bind_int(stmt, 5, scholarID);
+        sqlite3_bind_text(stmt, 6, subject.getSubjectCode().c_str(), -1, SQLITE_TRANSIENT);
+
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            std::cerr << "\t\t\tError updating subject: " << sqlite3_errmsg(db) << std::endl;
+        }
+        else {
+            std::cout << "\t\t\tSubject updated successfully!" << std::endl;
+        }
+    }
+    else {
+        std::cerr << "\t\t\tError preparing SQL statement: " << sqlite3_errmsg(db) << std::endl;
+    }
+
+    sqlite3_finalize(stmt);
+}
+
 // Function to delete a subject from the classes table
 void DatabaseManager::deleteSubject(int scholarID, const std::string& subjectCode) {
     std::string sql = "DELETE FROM classes WHERE scholar_id = ? AND subject_code = ?;";
@@ -342,43 +370,6 @@ void DatabaseManager::deleteSubject(int scholarID, const std::string& subjectCod
 
     sqlite3_finalize(stmt);
 }
-
-
-// Function to update subject details in the classes table
-void DatabaseManager::updateSubject(int scholarID, const std::string& subjectCode, const std::string& subjectName, const std::string& instructorName, int totalClasses, int classesPresent) {
-    // Prepare the SQL query with parameterized statement
-    std::string sql = "UPDATE classes SET subject_name = ?, instructor_name = ?, total_classes = ?, classes_present = ? WHERE scholar_id = ? AND subject_code = ?;";
-
-    // Prepare the SQL statement
-    sqlite3_stmt* stmt;
-    int result = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
-    if (result == SQLITE_OK) {
-        // Bind the parameters
-        sqlite3_bind_text(stmt, 1, subjectName.c_str(), -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 2, instructorName.c_str(), -1, SQLITE_STATIC);
-        sqlite3_bind_int(stmt, 3, totalClasses);
-        sqlite3_bind_int(stmt, 4, classesPresent);
-        sqlite3_bind_int(stmt, 5, scholarID);
-        sqlite3_bind_text(stmt, 6, subjectCode.c_str(), -1, SQLITE_STATIC);
-
-        // Execute the query
-        int exit = sqlite3_step(stmt);
-        if (exit != SQLITE_DONE) {
-            std::cerr << "\t\t\tError updating subject: " << sqlite3_errmsg(db) << std::endl;
-        }
-        else {
-            std::cout << "\t\t\tSubject updated successfully!" << std::endl;
-        }
-
-        // Finalize the statement
-        sqlite3_finalize(stmt);
-    }
-    else {
-        // Error handling if the SQL statement preparation fails
-        std::cerr << "\t\t\tError preparing SQL statement: " << sqlite3_errmsg(db) << std::endl;
-    }
-}
-
 
 // Function to view subjects for a specific student from the classes table
 void DatabaseManager::viewSubjects(int scholarID) {
