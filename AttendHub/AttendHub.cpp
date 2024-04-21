@@ -139,7 +139,7 @@ void StudentMenu(Student& s) { // Pass Student object by reference
             s.viewProfile();
             break;
         case '9':
-            //s.editProfile();
+            s.editProfile();
             break;
         case 'A':
             s.changePassword();

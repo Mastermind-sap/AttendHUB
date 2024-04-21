@@ -235,17 +235,36 @@ void DatabaseManager::deleteStudent(int scholarID) {
 }
 
 // Function to update student details in the students table
-void DatabaseManager::updateStudent(int scholarID, const std::string& firstName, const std::string& lastName, const std::string& dob, const std::string& branch, char section, int yearOfPass, const std::string& username, const std::string& password, const std::string& secret) {
-    std::string sql = "UPDATE students SET first_name = '" + firstName + "', last_name = '" + lastName + "', dob = '" + dob + "', branch = '" + branch + "', section = '" + std::string(1, section) + "', year_of_pass = " + std::to_string(yearOfPass) + ", username = '" + username + "', password = '" + password + "', secret = '" + secret + "' WHERE scholar_id = " + std::to_string(scholarID) + ";";
+void DatabaseManager::updateStudent(const Student& student) {
+    std::string sql = "UPDATE students SET first_name = ?, last_name = ?, dob = ?, branch = ?, section = ?, year_of_pass = ?, username = ?, secret = ? WHERE scholar_id = ?;";
 
-    char* messageError;
-    int exit = sqlite3_exec(db, sql.c_str(), NULL, 0, &messageError);
-    if (exit != SQLITE_OK) {
-        std::cerr << "\t\t\tError updating student: " << messageError << std::endl;
-        sqlite3_free(messageError);
+    sqlite3_stmt* stmt;
+    int result = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
+    if (result == SQLITE_OK) {
+        // Bind parameters
+        sqlite3_bind_text(stmt, 1, student.getFirstName().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 2, student.getLastName().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 3, student.getDOB().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 4, student.getBranch().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 5, std::string(1, student.getSection()).c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_int(stmt, 6, student.getYearOfPass());
+        sqlite3_bind_text(stmt, 7, student.getUsername().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 8, student.getSecretAnswer().c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_int(stmt, 9, student.getScholarID());
+
+        // Execute the query
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            std::cerr << "\t\t\tError updating student: " << sqlite3_errmsg(db) << std::endl;
+        }
+        else {
+            std::cout << "\t\t\tStudent updated successfully!" << std::endl;
+        }
+
+        // Finalize the statement
+        sqlite3_finalize(stmt);
     }
     else {
-        std::cout << "\t\t\tStudent updated successfully!" << std::endl;
+        std::cerr << "\t\t\tError preparing SQL statement: " << sqlite3_errmsg(db) << std::endl;
     }
 }
 

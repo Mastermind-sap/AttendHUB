@@ -39,7 +39,7 @@ public:
     void fetchDetails(Student& student, const std::string& username);
     bool addStudent(int scholarId, const std::string& firstName, const std::string& lastName, const std::string& dob, const std::string& branch, char section, int yearOfPass, const std::string& username, const std::string& password, const std::string& secret);
     void deleteStudent(int scholarID);
-    void updateStudent(int scholarID, const std::string& firstName, const std::string& lastName, const std::string& dob, const std::string& branch, char section, int yearOfPass, const std::string& username, const std::string& password, const std::string& secret);
+    void updateStudent(const Student& student);
     void viewStudent(int scholarID);
 
     // CRUD functions for classes table

@@ -77,6 +77,71 @@ void Student::viewProfile() {
     std::cout << "\t\t\t\t\t+--------------------+" << std::string(columnWidth, '-') << "+ " << std::endl;
 }
 
+void Student::editProfile() {
+    // Use DatabaseManager to fetch student details
+    DatabaseManager dbManager;
+
+    std::cout << "Enter new details(Press enter on fields you dont want to change):" << std::endl;
+
+    // Take new details from the user
+    int _yearOfPass;
+    std::string _firstName, _lastName, _dob, _branch, _username, _secret;
+    char _section;
+    std::cout << "Enter new username: ";
+    takeInput(&_username, false, true);
+    if (_username!="") {
+        if (dbManager.isUsernameExists(_username)&&_username!=username) {
+            std::cout << "\n\t\t\t\tUsername already exists! Please choose another username.\n" << std::endl;
+            return;
+        }
+        setUsername(_username);
+    }
+    std::cout << "Enter new first name: ";
+    takeInput(&_firstName, false, true);
+    if (_firstName!="") {
+       setFirstName(_firstName);
+    }
+
+    std::cout << "Enter new last name: ";
+    takeInput(&_lastName, false, true);
+    if (_lastName!="") {
+       setLastName(_lastName);
+    }
+
+    std::cout << "Enter new Date of Birth: ";
+    takeInput(&_dob, false, true);
+    if (_dob!="") {
+        setDOB(_dob);
+    }
+
+    std::cout << "Enter new branch: ";
+    takeInput(&_branch, false, true);
+    if (_branch!="") {
+        setBranch(_branch);
+    }
+
+    std::cout << "Enter new section: ";
+    if (takeInput(&_section, false, true)) {
+        setSection(_section);
+    }
+
+    std::cout << "Enter new year of pass: ";
+    if (takeInput(&_yearOfPass, false, true)) {
+        setYearOfPass(_yearOfPass);
+    }
+
+    std::cout << "Enter new secret answer: ";
+    takeInput(&_secret, false, true);
+    if (_secret!="") {
+        setSecretAnswer(_secret);
+    }
+
+    // Update student details in the database
+    dbManager.updateStudent(*this);
+    // Just to be sure that there is no data discrepancy fetch the details after they are updated
+    dbManager.fetchDetails(*this, username);
+    std::cout << "Profile updated successfully!" << std::endl;
+}
 
 
 

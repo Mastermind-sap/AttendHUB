@@ -36,7 +36,7 @@ bool People::signup() {
     }
 
     //If username is unique, create the account
-    std::cout << "\n\t\t\t\tEnter first name:";
+    std::cout << "\t\t\t\tEnter first name:";
     takeInput(&firstName,false);
     std::cout << "\t\t\t\tEnter last name:";
     takeInput(&lastName,false);
