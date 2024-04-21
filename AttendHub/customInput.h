@@ -45,6 +45,14 @@ bool takeInput(DataType* var,bool isSentence=true,bool canBeEmpty=false) {
             }
             else if constexpr (std::is_same_v<DataType, std::string>) {
                 *var = input;
+                if (input == "") {
+                    if (canBeEmpty) {
+                        return false;
+                    }
+                    else {
+                        throw std::invalid_argument("Input cannot be empty.");
+                    }
+                }
             }
             else if constexpr (std::is_same_v<DataType, int>) {
                 if (isEmpty) {

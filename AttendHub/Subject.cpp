@@ -24,21 +24,20 @@ void Subject::inputDetails(bool takeCode,bool initialInput) {
     std::string _subjectName, _instructorName;
     int _totalClasses, _classesPresent;
     std::cout << "Enter subject name: ";
-    takeInput(&_subjectName,true,!initialInput);
-    if (_subjectName != "")setSubjectName(_subjectName);
+    //checks whether it is empty or not
+    if (takeInput(&_subjectName, true, !initialInput))
+        setSubjectName(_subjectName);
 
     std::cout << "Enter instructor name: ";
-    takeInput(&_instructorName, true, !initialInput);
-    if (_instructorName != "")setInstructorName(_instructorName);
+    if (takeInput(&_instructorName, true, !initialInput))
+        setInstructorName(_instructorName);
 
     std::cout << "Enter total classes: ";
-    //checks whether it is empty or not
     if (takeInput(&_totalClasses, true, !initialInput)) {
         setTotalClasses(_totalClasses);
     }
 
     std::cout << "Enter classes present: ";
-    //checks whether it is empty or not
     if (takeInput(&_classesPresent, true, !initialInput)) { 
         setClassesPresent(_classesPresent); 
     }

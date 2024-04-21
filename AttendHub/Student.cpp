@@ -88,8 +88,7 @@ void Student::editProfile() {
     std::string _firstName, _lastName, _dob, _branch, _username, _secret;
     char _section;
     std::cout << "Enter new username: ";
-    takeInput(&_username, false, true);
-    if (_username!="") {
+    if (takeInput(&_username, false, true)) {
         if (dbManager.isUsernameExists(_username)&&_username!=username) {
             std::cout << "\n\t\t\t\tUsername already exists! Please choose another username.\n" << std::endl;
             return;
@@ -97,26 +96,22 @@ void Student::editProfile() {
         setUsername(_username);
     }
     std::cout << "Enter new first name: ";
-    takeInput(&_firstName, false, true);
-    if (_firstName!="") {
+    if (takeInput(&_firstName, false, true)) {
        setFirstName(_firstName);
     }
 
     std::cout << "Enter new last name: ";
-    takeInput(&_lastName, false, true);
-    if (_lastName!="") {
+    if (takeInput(&_lastName, false, true)) {
        setLastName(_lastName);
     }
 
     std::cout << "Enter new Date of Birth: ";
-    takeInput(&_dob, false, true);
-    if (_dob!="") {
+    if (takeInput(&_dob, false, true)) {
         setDOB(_dob);
     }
 
     std::cout << "Enter new branch: ";
-    takeInput(&_branch, false, true);
-    if (_branch!="") {
+    if (takeInput(&_branch, false, true)) {
         setBranch(_branch);
     }
 
@@ -131,8 +126,7 @@ void Student::editProfile() {
     }
 
     std::cout << "Enter new secret answer: ";
-    takeInput(&_secret, false, true);
-    if (_secret!="") {
+    if (takeInput(&_secret, false, true)) {
         setSecretAnswer(_secret);
     }
 
