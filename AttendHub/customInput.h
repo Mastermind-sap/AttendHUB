@@ -115,7 +115,7 @@ bool takeInput(DataType* var,bool isSentence=true,bool canBeEmpty=false) {
             return true;
         }
         catch (const std::exception& e) {
-            std::cerr << "Error: " << e.what() << ".\nPlease enter again: ";
+            std::cerr << "\n\t\t\tError: " << e.what() << ".\n\t\t\tPlease enter again: ";
         }
     }
 }

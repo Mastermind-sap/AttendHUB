@@ -81,13 +81,13 @@ void Student::editProfile() {
     // Use DatabaseManager to fetch student details
     DatabaseManager dbManager;
 
-    std::cout << "Enter new details(Press enter on fields you dont want to change):" << std::endl;
+    std::cout << "\t\t\tEnter new details(Press enter on fields you dont want to change):" << std::endl;
 
     // Take new details from the user
     int _yearOfPass;
     std::string _firstName, _lastName, _dob, _branch, _username, _secret;
     char _section;
-    std::cout << "Enter new username: ";
+    std::cout << "\t\t\tEnter new username: ";
     if (takeInput(&_username, false, true)) {
         if (dbManager.isUsernameExists(_username)&&_username!=username) {
             std::cout << "\n\t\t\t\tUsername already exists! Please choose another username.\n" << std::endl;
@@ -95,37 +95,37 @@ void Student::editProfile() {
         }
         setUsername(_username);
     }
-    std::cout << "Enter new first name: ";
+    std::cout << "\t\t\tEnter new first name: ";
     if (takeInput(&_firstName, false, true)) {
        setFirstName(_firstName);
     }
 
-    std::cout << "Enter new last name: ";
+    std::cout << "\t\t\tEnter new last name: ";
     if (takeInput(&_lastName, false, true)) {
        setLastName(_lastName);
     }
 
-    std::cout << "Enter new Date of Birth: ";
+    std::cout << "\t\t\tEnter new Date of Birth: ";
     if (takeInput(&_dob, false, true)) {
         setDOB(_dob);
     }
 
-    std::cout << "Enter new branch: ";
+    std::cout << "\t\t\tEnter new branch: ";
     if (takeInput(&_branch, false, true)) {
         setBranch(_branch);
     }
 
-    std::cout << "Enter new section: ";
+    std::cout << "\t\t\tEnter new section: ";
     if (takeInput(&_section, false, true)) {
         setSection(_section);
     }
 
-    std::cout << "Enter new year of pass: ";
+    std::cout << "\t\t\tEnter new year of pass: ";
     if (takeInput(&_yearOfPass, false, true)) {
         setYearOfPass(_yearOfPass);
     }
 
-    std::cout << "Enter new secret answer: ";
+    std::cout << "\t\t\tEnter new secret answer: ";
     if (takeInput(&_secret, false, true)) {
         setSecretAnswer(_secret);
     }
@@ -134,7 +134,7 @@ void Student::editProfile() {
     dbManager.updateStudent(*this);
     // Just to be sure that there is no data discrepancy fetch the details after they are updated
     dbManager.fetchDetails(*this, username);
-    std::cout << "Profile updated successfully!" << std::endl;
+    std::cout << "\t\t\tProfile updated successfully!" << std::endl;
 }
 
 
@@ -149,18 +149,18 @@ void Student::viewSubjects(bool onlySubjectCodes,bool onlyAttendance,const std::
 
     // Print all subject details
     for (const auto& subject : subjects) {
-        std::cout << "Subject Code: " << subject.getSubjectCode() << std::endl;
+        std::cout << "\n\t\t\tSubject Code: " << subject.getSubjectCode() << std::endl;
         if(!onlySubjectCodes)
         {
             if(!onlyAttendance)
             {
-                std::cout << "Subject Name: " << subject.getSubjectName()<< std::endl;
-                std::cout << "Instructor Name: " << subject.getInstructorName() << std::endl;
+                std::cout << "\t\t\tSubject Name: " << subject.getSubjectName()<< std::endl;
+                std::cout << "\t\t\tInstructor Name: " << subject.getInstructorName() << std::endl;
             }
-            std::cout << "Total Classes: " << subject.getTotalClasses() << std::endl;
-            std::cout << "Classes Present: " << subject.getClassesPresent()<< std::endl;
-            std::cout << "Classes Absent: " << subject.getTotalClasses() - subject.getClassesPresent() << std::endl;
-            std::cout << "Attendance Percentage: " << ((float)subject.getClassesPresent() / (float)subject.getTotalClasses())*100.0<<" %" << std::endl;
+            std::cout << "\t\t\tTotal Classes: " << subject.getTotalClasses() << std::endl;
+            std::cout << "\t\t\tClasses Present: " << subject.getClassesPresent()<< std::endl;
+            std::cout << "\t\t\tClasses Absent: " << subject.getTotalClasses() - subject.getClassesPresent() << std::endl;
+            std::cout << "\t\t\tAttendance Percentage: " << ((float)subject.getClassesPresent() / (float)subject.getTotalClasses())*100.0<<" %" << std::endl;
         }
         std::cout << std::endl;
     }
@@ -173,7 +173,7 @@ void Student::addSubject()
     subject.inputDetails();
 
     if (subject.getTotalClasses() < 0 || subject.getClassesPresent() < 0 || subject.getClassesPresent() > subject.getTotalClasses()) {
-        std::cout << "Invalid input. Please enter non-negative values, with classes present not exceeding total classes." << std::endl;
+        std::cout << "\n\t\t\tInvalid input.\nPlease enter non-negative values, with classes present not exceeding total classes." << std::endl;
         return;
     }
     // Use DatabaseManager to add subject for this student
@@ -190,7 +190,7 @@ void Student::editSubject()
 
     // Take user input for subject code to edit
     std::string _subjectCode;
-    std::cout << "Enter subject code to edit: ";
+    std::cout << "\t\t\tEnter subject code to edit: ";
     takeInput(&_subjectCode);
 
 
@@ -198,7 +198,7 @@ void Student::editSubject()
     auto subjects = dbManager.getSubjects(scholarID, _subjectCode);
     if (subjects.size()==0)
     {
-        std::cout << "Subject not found." << std::endl;
+        std::cout << "\t\t\tSubject not found." << std::endl;
         return;
     }
 
@@ -206,7 +206,7 @@ void Student::editSubject()
     subject.inputDetails(false,false);
 
     if (subject.getTotalClasses() < 0 || subject.getClassesPresent() < 0 || subject.getClassesPresent() > subject.getTotalClasses()) {
-        std::cout << "Invalid input. Please enter non-negative values, with classes present not exceeding total classes." << std::endl;
+        std::cout << "\n\t\t\tInvalid input.\nPlease enter non-negative values, with classes present not exceeding total classes." << std::endl;
         return;
     }
     // Use DatabaseManager to edit subject for this student
@@ -222,14 +222,14 @@ void Student::deleteSubject()
 
     // Take user input for subject code to delete
     std::string subjectCode;
-    std::cout << "Enter subject code to delete: ";
+    std::cout << "\t\t\tEnter subject code to delete: ";
     takeInput(&subjectCode);
 
 
     // Check if the subject exists for this student
     if (!dbManager.subjectExists(scholarID, subjectCode))
     {
-        std::cout << "Subject not found." << std::endl;
+        std::cout << "\t\t\tSubject not found." << std::endl;
         return;
     }
 
@@ -246,20 +246,20 @@ void Student::addAttendance()
 
     // Take user input for subject code to add attendance
     std::string subjectCode;
-    std::cout << "Enter subject code to add attendance: ";
+    std::cout << "\t\t\tEnter subject code to add attendance: ";
     takeInput(&subjectCode);
 
     // Check if the subject exists for this student
     if (!dbManager.subjectExists(scholarID, subjectCode))
     {
-        std::cout << "Subject not found." << std::endl;
+        std::cout << "\t\t\tSubject not found." << std::endl;
         return;
     }
 
     auto subjects = dbManager.getSubjects(scholarID, subjectCode);
     // Take user input for attendance status (present or absent)
     char attendanceStatus;
-    std::cout << "Enter attendance status (P for present, A for absent): ";
+    std::cout << "\t\t\tEnter attendance status (P for present, A for absent): ";
     takeInput(&attendanceStatus);
 
     if (attendanceStatus == 'P' || attendanceStatus == 'p')
@@ -273,7 +273,7 @@ void Student::addAttendance()
     }
     else
     {
-        std::cout << "Invalid input. Please enter 'P' for present or 'A' for absent." << std::endl;
+        std::cout << "\n\t\t\tInvalid input.\nPlease enter 'P' for present or 'A' for absent." << std::endl;
         return;
     }
 
@@ -290,13 +290,13 @@ void Student::editAttendance()
 
     // Take user input for subject code to edit attendance
     std::string subjectCode;
-    std::cout << "Enter subject code to edit attendance: ";
+    std::cout << "\t\t\tEnter subject code to edit attendance: ";
     takeInput(&subjectCode);
 
     // Check if the subject exists for this student
     if (!dbManager.subjectExists(scholarID, subjectCode))
     {
-        std::cout << "Subject not found." << std::endl;
+        std::cout << "\t\t\tSubject not found." << std::endl;
         return;
     }
 
@@ -304,15 +304,15 @@ void Student::editAttendance()
 
     // Take user input for new attendance details
     int newClassesPresent, newTotalClasses;
-    std::cout << "Enter new total classes: ";
+    std::cout << "\t\t\tEnter new total classes: ";
     takeInput(&newTotalClasses);
-    std::cout << "Enter new classes present: ";
+    std::cout << "\t\t\tEnter new classes present: ";
     takeInput(&newClassesPresent);
 
     // Validate input
     if (newTotalClasses < 0 || newClassesPresent < 0 || newClassesPresent > newTotalClasses)
     {
-        std::cout << "Invalid input. Please enter non-negative values, with classes present not exceeding total classes." << std::endl;
+        std::cout << "\n\t\t\tInvalid input.\nPlease enter non-negative values, with classes present not exceeding total classes." << std::endl;
         return;
     }
     subjects[0].setTotalClasses(newTotalClasses);
@@ -330,13 +330,13 @@ void Student::viewAttendance()
 
     // Take user input for subject code to view attendance
     std::string subjectCode;
-    std::cout << "Enter subject code to view attendance(or press enter to view all): ";
+    std::cout << "\t\t\tEnter subject code to view attendance(or press enter to view all): ";
     takeInput(&subjectCode);
 
     // Check if the subject exists for this student
     if (!dbManager.subjectExists(scholarID, subjectCode)&&subjectCode!="")
     {
-        std::cout << "Subject not found." << std::endl;
+        std::cout << "\t\t\tSubject not found." << std::endl;
         return;
     }
     viewSubjects(false, true, subjectCode);

@@ -13,31 +13,31 @@ Subject::Subject(const std::string& _subjectCode):subjectCode(_subjectCode), sub
 // Function to input details
 void Subject::inputDetails(bool takeCode,bool initialInput) {
     if (!initialInput) {
-        std::cout << "Enter new details(Press enter on fields you dont want to change):" << std::endl;
+        std::cout << "\t\t\tEnter new details(Press enter on fields you dont want to change):" << std::endl;
     }
     if(takeCode)
     {
-        std::cout << "Enter subject code: ";
+        std::cout << "\t\t\tEnter subject code: ";
         takeInput(&subjectCode);
     }
 
     std::string _subjectName, _instructorName;
     int _totalClasses, _classesPresent;
-    std::cout << "Enter subject name: ";
+    std::cout << "\t\t\tEnter subject name: ";
     //checks whether it is empty or not
     if (takeInput(&_subjectName, true, !initialInput))
         setSubjectName(_subjectName);
 
-    std::cout << "Enter instructor name: ";
+    std::cout << "\t\t\tEnter instructor name: ";
     if (takeInput(&_instructorName, true, !initialInput))
         setInstructorName(_instructorName);
 
-    std::cout << "Enter total classes: ";
+    std::cout << "\t\t\tEnter total classes: ";
     if (takeInput(&_totalClasses, true, !initialInput)) {
         setTotalClasses(_totalClasses);
     }
 
-    std::cout << "Enter classes present: ";
+    std::cout << "\t\t\tEnter classes present: ";
     if (takeInput(&_classesPresent, true, !initialInput)) { 
         setClassesPresent(_classesPresent); 
     }
@@ -45,9 +45,9 @@ void Subject::inputDetails(bool takeCode,bool initialInput) {
 
 // Function to display details
 void Subject::displayDetails() const {
-    std::cout << "Subject Code: " << subjectCode << std::endl;
-    std::cout << "Subject Name: " << subjectName << std::endl;
-    std::cout << "Instructor Name: " << instructorName << std::endl;
-    std::cout << "Total Classes: " << totalClasses << std::endl;
-    std::cout << "Classes Present: " << classesPresent << std::endl;
+    std::cout << "\t\t\tSubject Code: " << subjectCode << std::endl;
+    std::cout << "\t\t\tSubject Name: " << subjectName << std::endl;
+    std::cout << "\t\t\tInstructor Name: " << instructorName << std::endl;
+    std::cout << "\t\t\tTotal Classes: " << totalClasses << std::endl;
+    std::cout << "\t\t\tClasses Present: " << classesPresent << std::endl;
 }
