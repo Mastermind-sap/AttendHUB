@@ -1,6 +1,7 @@
 #include "People.h"
 #include "customInput.h"
 #include "DatabaseManager.h"
+#include "Password.h"
 
 People::People(const std::string& _firstName, const std::string& _lastName, const std::string& _dob, const std::string& _username, const std::string& _password, const std::string& _secretAnswer)
     : firstName(_firstName), lastName(_lastName), dob(_dob), username(_username), password(_password), secretAnswer(_secretAnswer) {}
@@ -43,21 +44,24 @@ bool People::signup() {
     std::cout << "\t\t\t\tEnter Date of Birth:";
     takeInput(&dob);
     std::cout << "\t\t\t\tEnter password:";
-    takeInput(&password);
+    Password _pass;
+    _pass.getPasswordFromUser();
+    password = _pass.getEncryptedPassword();
     std::cout << "\t\t\t\tEnter secret answer to recover password if you forget it:";
     takeInput(&secretAnswer);
     return true;
 }
 
 bool People::login() {
-    std::string _username, _password;
+    std::string _username;Password _password;
     std::cout << "\t\t\t\tEnter username:";
     takeInput(&_username);
     std::cout << "\t\t\t\tEnter password:";
-    takeInput(&_password);
+    _password.getPasswordFromUser();
+
     // Check if the username and password match in the database
     DatabaseManager dbManager;
-    if (dbManager.verifyUser(_username, _password)) {
+    if (dbManager.verifyUser(_username, _password.getEncryptedPassword())) {
         setUsername(_username);
         std::cout << "\n\t\t\t\tLogin successful!" << std::endl;
         return true;
@@ -95,20 +99,20 @@ size_t People::showDetails() {
 }
 
 bool People::changePassword() {
-    std::string oldPass;
+    Password oldPass;
     DatabaseManager dbManager;
     if (username == "") {
         std::cout << "\t\t\t\tEnter username: ";
         takeInput(&username);
     }
     std::cout << "\t\t\t\tEnter old password: ";
-    takeInput(&oldPass);
-    if (dbManager.verifyUser(username,oldPass)){
-        std::string newPass;
+    oldPass.getPasswordFromUser();
+    if (dbManager.verifyUser(username,oldPass.getEncryptedPassword())){
+        Password newPass;
         std::cout << "\t\t\t\tEnter new password: ";
-        takeInput(&newPass);
-        if (dbManager.changePassword(username, newPass)) {
-            setPassword(newPass);
+        newPass.getPasswordFromUser();
+        if (dbManager.changePassword(username, newPass.getEncryptedPassword())) {
+            setPassword(newPass.getEncryptedPassword());
             return true;
         }
     }
@@ -126,10 +130,10 @@ bool People::forgotPassword() {
     
     if (dbManager.verifySecret(username, secret)) {
         setUsername(username);
-        std::string newPass;
+        Password newPass;
         std::cout << "\t\t\t\tEnter new password: ";
-        takeInput(&newPass);
-        if(dbManager.changePassword(username, newPass))
+        newPass.getPasswordFromUser();
+        if(dbManager.changePassword(username, newPass.getEncryptedPassword()))
         {
             return true;
         }
