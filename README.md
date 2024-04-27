@@ -4,3 +4,8 @@
 
 ## An attendance management system using sqlite3.
 
+### Getting started:
+ - Download Visual Studio for C++ Desktop development
+ - Open the AttendHub.sln and run the AttendHUB.cpp file(Shortcut press Ctrl+F5)
+
+(We will be releasing CMAKE file in future to make it more easily accessible)
