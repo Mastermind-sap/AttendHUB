@@ -59,7 +59,6 @@ void startScreen() {
     Sleep(1000);
     std::cout << "\xDB\xDB\xDB\xDB\xDB\xDB\xDB\xDB";
     Sleep(500);
-    system("color a0");
     effect();
 }
 #else
@@ -209,6 +208,6 @@ void Menu() {
 int main()
 {
     //Uncomment for an animated start screen
-    //startScreen();
+    startScreen();
     Menu();
 }

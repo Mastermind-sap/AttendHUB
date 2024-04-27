@@ -32,7 +32,6 @@ void Password::getPasswordFromUser() {
     tty.c_lflag |= ECHO;
     (void)tcsetattr(STDIN_FILENO, TCSANOW, &tty);
 #endif
-
     // Instantiation of Object
     std::hash<std::string> mystdhash;
     // Encrypt the password before storing

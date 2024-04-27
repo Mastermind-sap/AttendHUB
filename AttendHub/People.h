@@ -28,7 +28,6 @@ public:
     std::string getLastName() const;
     std::string getDOB() const;
     std::string getUsername() const;
-    std::string getPassword() const;
     std::string getSecretAnswer() const;
 
     // Setters

@@ -13,7 +13,6 @@ std::string People::getFirstName() const { return firstName; }
 std::string People::getLastName() const { return lastName; }
 std::string People::getDOB() const { return dob; }
 std::string People::getUsername() const { return username; }
-std::string People::getPassword() const { return password; }
 std::string People::getSecretAnswer() const { return secretAnswer; }
 
 
